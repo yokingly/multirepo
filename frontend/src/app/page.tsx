@@ -103,8 +103,8 @@ export default function Home() {
                 <span>would</span>
               </h1>
               <p className="mx-auto max-w-[800px] text-lg text-muted-foreground md:text-xl">
-                Advanced human behavior simulation that makes your outreach truly indistinguishable from manual sending.
-                Built for enterprise sales teams who need unmatched deliverability at scale.
+                Ditch API-based sending and achieve unmatched deliverability by replicating real human behavior in email clients. 
+                Our stealth technology uses isolated browser fingerprints, residential proxies, and complete session simulation to make your outreach truly undetectable.
               </p>
             </div>
 
@@ -112,15 +112,15 @@ export default function Home() {
             <div className="flex flex-wrap justify-center gap-4 text-sm text-muted-foreground">
               <div className="flex items-center">
                 <IconWrapper icon={CheckCircle2} className="mr-2 h-4 w-4 text-blue-600" />
-                <span>Complete session simulation</span>
+                <span>Real browser automation</span>
               </div>
               <div className="flex items-center">
                 <IconWrapper icon={CheckCircle2} className="mr-2 h-4 w-4 text-blue-600" />
-                <span>Premium residential proxies</span>
+                <span>Isolated fingerprints</span>
               </div>
               <div className="flex items-center">
                 <IconWrapper icon={CheckCircle2} className="mr-2 h-4 w-4 text-blue-600" />
-                <span>Enterprise-ready platform</span>
+                <span>Residential proxies</span>
               </div>
             </div>
 
@@ -139,11 +139,11 @@ export default function Home() {
         <div className="container">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">
-              Advanced Human Behavior Simulation
+              True Browser-Based Email Automation
             </h2>
             <p className="mt-4 text-lg text-muted-foreground">
-              Our platform goes beyond simple email sending - we replicate complete human interaction patterns
-              that make detection virtually impossible for email service providers
+              Unlike API-based solutions, we replicate complete human interaction patterns in real email clients - 
+              making your outreach indistinguishable from manual sending
             </p>
           </div>
           <div className="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
