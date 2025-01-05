@@ -18,6 +18,7 @@ import {
 } from 'lucide-react';
 import type { LucideProps } from 'lucide-react';
 import { FC, useState } from 'react';
+import { SessionFlowChart } from '@/components/SessionFlowChart';
 
 // TODO: Fix type definitions for Lucide icons
 // @ts-ignore
@@ -134,130 +135,16 @@ const HowItWorksChart = () => {
   }), { sent: 0, read: 0, replied: 0, clicked: 0 });
 
   return (
-    <div className="chart-container py-20">
-      <div className="chart-connection-bg" />
-      
-      {/* Main Platform Card */}
-      <div className="relative z-10 mx-auto mb-16 max-w-lg">
-        <div className="chart-card chart-card-primary shadow-lg hover:translate-y-[-4px] transition-transform">
-          <h3 className="text-2xl font-bold text-center mb-6">Sendhuman Platform</h3>
-          <div className="grid grid-cols-2 gap-6">
-            <div className="text-center p-3 bg-white/10 rounded-lg">
-              <div className="text-sm text-gray-300 mb-1">Total Sent</div>
-              <div className="text-xl font-bold text-blue-400">{totalStats.sent}</div>
-            </div>
-            <div className="text-center p-3 bg-white/10 rounded-lg">
-              <div className="text-sm text-gray-300 mb-1">Total Read</div>
-              <div className="text-xl font-bold text-green-400">{totalStats.read}</div>
-            </div>
-            <div className="text-center p-3 bg-white/10 rounded-lg">
-              <div className="text-sm text-gray-300 mb-1">Total Replies</div>
-              <div className="text-xl font-bold text-purple-400">{totalStats.replied}</div>
-            </div>
-            <div className="text-center p-3 bg-white/10 rounded-lg">
-              <div className="text-sm text-gray-300 mb-1">Total Clicked</div>
-              <div className="text-xl font-bold text-orange-400">{totalStats.clicked}</div>
-            </div>
-          </div>
+    <div className="py-20">
+      <div className="container">
+        <SessionFlowChart sessions={sessions} totalStats={totalStats} />
+        
+        {/* Description */}
+        <div className="mt-12 text-center max-w-2xl mx-auto">
+          <p className="text-gray-600">
+            Each email client session operates independently with randomized behavior patterns, while continuously reporting metrics back to the platform in real-time.
+          </p>
         </div>
-      </div>
-
-      {/* Container Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto px-4">
-        {sessions.map((env, index) => (
-          <div key={index} className="group">
-            <div className="chart-card chart-card-secondary shadow-md hover:translate-y-[-4px] transition-transform">
-              <div className="text-center mb-6">
-                {/* Platform Logo */}
-                <div className="inline-flex items-center justify-center w-16 h-16 mb-3 rounded-full bg-white/80 backdrop-blur-sm shadow-sm border border-gray-100">
-                  <img 
-                    src={env.logo} 
-                    alt={`${env.name} logo`} 
-                    className="w-10 h-10 object-contain"
-                  />
-                </div>
-                <h4 className="text-lg font-semibold text-[#2c3e50] mb-2">
-                  {env.name}
-                </h4>
-                
-                {/* Mailbox */}
-                <div className="mb-4">
-                  <span className="px-3 py-1.5 bg-blue-50 text-blue-700 rounded-full text-sm font-medium">
-                    {env.mailbox}
-                  </span>
-                </div>
-                
-                {/* Technical Details Pills */}
-                <div className="flex flex-wrap gap-2 justify-center mb-4">
-                  <span className="px-2 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-medium">
-                    {env.browser}
-                  </span>
-                  <span className="px-2 py-1 bg-green-100 text-green-700 rounded-full text-xs font-medium">
-                    {env.location}
-                  </span>
-                  <div className="w-full mt-2">
-                    <span className="px-2 py-1 bg-purple-100 text-purple-700 rounded-full text-xs font-medium whitespace-nowrap">
-                      IP: {env.ip}
-                    </span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Activity Stats with Icons */}
-              <div className="space-y-3">
-                <div className="chart-stats">
-                  <span className="flex items-center text-gray-600">
-                    <IconWrapper icon={Send} className="mr-2 h-4 w-4 text-blue-600" />
-                    Emails Sent
-                  </span>
-                  <span className="font-semibold text-blue-600">{env.stats.sent}</span>
-                </div>
-                <div className="chart-stats">
-                  <span className="flex items-center text-gray-600">
-                    <IconWrapper icon={Eye} className="mr-2 h-4 w-4 text-green-600" />
-                    Emails Read
-                  </span>
-                  <span className="font-semibold text-green-600">{env.stats.read}</span>
-                </div>
-                <div className="chart-stats">
-                  <span className="flex items-center text-gray-600">
-                    <IconWrapper icon={Reply} className="mr-2 h-4 w-4 text-purple-600" />
-                    Replies
-                  </span>
-                  <span className="font-semibold text-purple-600">{env.stats.replied}</span>
-                </div>
-                <div className="chart-stats">
-                  <span className="flex items-center text-gray-600">
-                    <IconWrapper icon={MousePointerClick} className="mr-2 h-4 w-4 text-orange-600" />
-                    Links Clicked
-                  </span>
-                  <span className="font-semibold text-orange-600">{env.stats.clicked}</span>
-                </div>
-              </div>
-
-              {/* Session Status */}
-              <div className="mt-4 pt-4 border-t border-gray-100">
-                <div className="flex flex-col items-center gap-3">
-                  <div className="flex items-center justify-center gap-2">
-                    <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                    <span className="text-sm text-gray-600">Active Session</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-sm text-gray-600">
-                    <IconWrapper icon={Clock} className="h-4 w-4 text-blue-600" />
-                    <span>Duration: {env.duration}</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      {/* Description */}
-      <div className="mt-12 text-center max-w-2xl mx-auto px-4">
-        <p className="text-gray-600">
-          Each email client session operates independently with randomized behavior patterns, while continuously reporting metrics back to the platform in real-time.
-        </p>
       </div>
     </div>
   );
