@@ -190,13 +190,15 @@ const HowItWorksChart = () => {
     <div className="py-20">
       <div className="hierarchy-container">
         {/* Section Header */}
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold tracking-tighter md:text-4xl mb-4">
-            Real-Time Email Automation
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Each email client session operates independently with randomized behavior patterns, simulating natural human interactions while continuously reporting metrics back to the platform.
-          </p>
+        <div className="container">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">
+              Real-Time Email Automation
+            </h2>
+            <p className="mt-4 text-lg text-muted-foreground">
+              Each email client session operates independently with randomized behavior patterns, simulating natural human interactions while continuously reporting metrics back to the platform.
+            </p>
+          </div>
         </div>
 
         {/* Platform Card */}
