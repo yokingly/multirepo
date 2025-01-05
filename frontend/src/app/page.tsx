@@ -94,21 +94,6 @@ const HowItWorksChart = () => {
       }
     },
     {
-      name: "Gmail Session",
-      logo: "/gmail icon.webp",
-      browser: "Firefox",
-      location: "🇳🇱 Amsterdam, NL",
-      ip: "216.58.213.110",
-      mailbox: "dan@sendhuman.ai",
-      duration: "1h 45m",
-      stats: {
-        sent: 18,
-        read: 8,
-        replied: 5,
-        clicked: 3
-      }
-    },
-    {
       name: "Outlook Session",
       logo: "/outlook-logo.png",
       browser: "Edge",
@@ -120,6 +105,21 @@ const HowItWorksChart = () => {
         sent: 19,
         read: 9,
         replied: 4,
+        clicked: 3
+      }
+    },
+    {
+      name: "Gmail Session",
+      logo: "/gmail icon.webp",
+      browser: "Firefox",
+      location: "🇳🇱 Amsterdam, NL",
+      ip: "216.58.213.110",
+      mailbox: "dan@sendhuman.ai",
+      duration: "1h 45m",
+      stats: {
+        sent: 18,
+        read: 8,
+        replied: 5,
         clicked: 3
       }
     }
@@ -136,26 +136,54 @@ const HowItWorksChart = () => {
   return (
     <div className="py-20">
       <div className="hierarchy-container">
+        {/* Section Header */}
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-bold tracking-tighter md:text-4xl mb-4">
+            Real-Time Email Automation
+          </h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            Each email client session operates independently with randomized behavior patterns, while continuously reporting metrics back to the platform in real-time.
+          </p>
+        </div>
+
         {/* Platform Card */}
         <div className="max-w-lg mx-auto mb-16">
-          <div className="chart-card chart-card-primary shadow-lg hover:translate-y-[-4px] transition-transform">
+          <div className="chart-card chart-card-secondary shadow-lg hover:translate-y-[-4px] transition-transform">
             <h3 className="text-2xl font-bold text-center mb-6">Sendhuman Platform</h3>
             <div className="grid grid-cols-2 gap-6">
-              <div className="text-center p-3 bg-white/10 rounded-lg">
-                <div className="text-sm text-gray-300 mb-1">Total Sent</div>
-                <div className="text-xl font-bold text-blue-400">{totalStats.sent}</div>
+              <div className="text-center p-4 rounded-lg bg-gradient-to-br from-blue-500/10 to-blue-600/5 border border-blue-100 dark:border-blue-900">
+                <div className="text-sm text-[#2c3e50] dark:text-gray-300 mb-1">Total Sent</div>
+                <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">{totalStats.sent}</div>
               </div>
-              <div className="text-center p-3 bg-white/10 rounded-lg">
-                <div className="text-sm text-gray-300 mb-1">Total Read</div>
-                <div className="text-xl font-bold text-green-400">{totalStats.read}</div>
+              <div className="text-center p-4 rounded-lg bg-gradient-to-br from-green-500/10 to-green-600/5 border border-green-100 dark:border-green-900">
+                <div className="text-sm text-[#2c3e50] dark:text-gray-300 mb-1">Total Read</div>
+                <div className="text-2xl font-bold text-green-600 dark:text-green-400">{totalStats.read}</div>
               </div>
-              <div className="text-center p-3 bg-white/10 rounded-lg">
-                <div className="text-sm text-gray-300 mb-1">Total Replies</div>
-                <div className="text-xl font-bold text-purple-400">{totalStats.replied}</div>
+              <div className="text-center p-4 rounded-lg bg-gradient-to-br from-purple-500/10 to-purple-600/5 border border-purple-100 dark:border-purple-900">
+                <div className="text-sm text-[#2c3e50] dark:text-gray-300 mb-1">Total Replies</div>
+                <div className="text-2xl font-bold text-purple-600 dark:text-purple-400">{totalStats.replied}</div>
               </div>
-              <div className="text-center p-3 bg-white/10 rounded-lg">
-                <div className="text-sm text-gray-300 mb-1">Total Clicked</div>
-                <div className="text-xl font-bold text-orange-400">{totalStats.clicked}</div>
+              <div className="text-center p-4 rounded-lg bg-gradient-to-br from-orange-500/10 to-orange-600/5 border border-orange-100 dark:border-orange-900">
+                <div className="text-sm text-[#2c3e50] dark:text-gray-300 mb-1">Total Clicked</div>
+                <div className="text-2xl font-bold text-orange-600 dark:text-orange-400">{totalStats.clicked}</div>
+              </div>
+            </div>
+            
+            {/* Platform Capabilities */}
+            <div className="mt-8 pt-6 border-t border-gray-100 dark:border-gray-800">
+              <div className="grid grid-cols-3 gap-4 text-sm">
+                <div className="flex items-center gap-2 text-[#2c3e50] dark:text-gray-300">
+                  <IconWrapper icon={Shield} className="h-4 w-4 text-blue-600" />
+                  <span>Smart Rate Limiting</span>
+                </div>
+                <div className="flex items-center gap-2 text-[#2c3e50] dark:text-gray-300">
+                  <IconWrapper icon={Users} className="h-4 w-4 text-green-600" />
+                  <span>Human Behavior</span>
+                </div>
+                <div className="flex items-center gap-2 text-[#2c3e50] dark:text-gray-300">
+                  <IconWrapper icon={BarChart3} className="h-4 w-4 text-purple-600" />
+                  <span>Real-time Analytics</span>
+                </div>
               </div>
             </div>
           </div>
@@ -250,13 +278,6 @@ const HowItWorksChart = () => {
               </div>
             </div>
           ))}
-        </div>
-
-        {/* Description */}
-        <div className="mt-12 text-center max-w-2xl mx-auto">
-          <p className="text-gray-600">
-            Each email client session operates independently with randomized behavior patterns, while continuously reporting metrics back to the platform in real-time.
-          </p>
         </div>
       </div>
     </div>
