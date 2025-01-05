@@ -12,7 +12,7 @@
 }
 
 .chart-card-primary {
-  @apply bg-[#2c3e50] text-white;
+  @apply bg-[#2c3e50] text-white relative z-10;
 }
 
 .chart-card-secondary {
@@ -23,8 +23,33 @@
   @apply flex items-center justify-between text-sm;
 }
 
-.chart-connection-bg {
-  @apply absolute inset-0 bg-gradient-to-b from-blue-50/20 via-transparent to-blue-50/20 dark:from-blue-900/20 dark:to-blue-900/20;
+.hierarchy-container {
+  @apply relative max-w-7xl mx-auto px-4;
+}
+
+.hierarchy-children {
+  @apply grid grid-cols-1 md:grid-cols-3 gap-8 relative;
+}
+
+.hierarchy-children::before {
+  content: '';
+  @apply absolute left-1/2 -top-8 h-8 w-px bg-blue-200 dark:bg-blue-800;
+  transform: translateX(-50%);
+}
+
+.hierarchy-children::after {
+  content: '';
+  @apply absolute left-[16.666%] right-[16.666%] -top-8 h-px bg-blue-200 dark:bg-blue-800;
+}
+
+.hierarchy-child {
+  @apply relative;
+}
+
+.hierarchy-child::before {
+  content: '';
+  @apply absolute left-1/2 -top-8 h-8 w-px bg-blue-200 dark:bg-blue-800;
+  transform: translateX(-50%);
 }
 
 @layer base {
