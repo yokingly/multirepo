@@ -14,7 +14,8 @@ import {
   Send, 
   Eye, 
   Reply, 
-  MousePointerClick 
+  MousePointerClick,
+  PauseCircle
 } from 'lucide-react';
 import type { LucideProps } from 'lucide-react';
 import { FC, useState } from 'react';
@@ -86,11 +87,12 @@ const HowItWorksChart = () => {
       ip: "172.217.168.46",
       mailbox: "daniel@sendhuman.com",
       duration: "2h 15m",
+      status: "active",
       stats: {
-        sent: 23,
-        read: 12,
-        replied: 7,
-        clicked: 5
+        sent: 28,
+        simulated_reading: 14,
+        replied: 3,
+        clicked: 2
       }
     },
     {
@@ -101,9 +103,10 @@ const HowItWorksChart = () => {
       ip: "40.99.143.165",
       mailbox: "danny@sendhuman.co",
       duration: "3h 30m",
+      status: "active",
       stats: {
-        sent: 19,
-        read: 9,
+        sent: 30,
+        simulated_reading: 16,
         replied: 4,
         clicked: 3
       }
@@ -116,10 +119,59 @@ const HowItWorksChart = () => {
       ip: "216.58.213.110",
       mailbox: "dan@sendhuman.ai",
       duration: "1h 45m",
+      status: "downtime",
       stats: {
-        sent: 18,
-        read: 8,
-        replied: 5,
+        sent: 25,
+        simulated_reading: 12,
+        replied: 3,
+        clicked: 2
+      }
+    },
+    {
+      name: "Gmail Session",
+      logo: "/gmail icon.webp",
+      browser: "Safari",
+      location: "🇨🇦 Toronto, CA",
+      ip: "172.217.164.78",
+      mailbox: "sales@sendhuman.com",
+      duration: "4h 20m",
+      status: "active",
+      stats: {
+        sent: 27,
+        simulated_reading: 15,
+        replied: 3,
+        clicked: 2
+      }
+    },
+    {
+      name: "Outlook Session",
+      logo: "/outlook-logo.png",
+      browser: "Edge",
+      location: "🇦🇺 Sydney, AU",
+      ip: "40.99.147.182",
+      mailbox: "support@sendhuman.co",
+      duration: "2h 45m",
+      status: "downtime",
+      stats: {
+        sent: 22,
+        simulated_reading: 11,
+        replied: 2,
+        clicked: 1
+      }
+    },
+    {
+      name: "Gmail Session",
+      logo: "/gmail icon.webp",
+      browser: "Chrome",
+      location: "🇸🇬 Singapore, SG",
+      ip: "172.217.194.103",
+      mailbox: "asia@sendhuman.com",
+      duration: "5h 10m",
+      status: "active",
+      stats: {
+        sent: 29,
+        simulated_reading: 17,
+        replied: 4,
         clicked: 3
       }
     }
@@ -128,10 +180,10 @@ const HowItWorksChart = () => {
   // Calculate total stats
   const totalStats = sessions.reduce((acc, session) => ({
     sent: acc.sent + session.stats.sent,
-    read: acc.read + session.stats.read,
+    simulated_reading: acc.simulated_reading + session.stats.simulated_reading,
     replied: acc.replied + session.stats.replied,
     clicked: acc.clicked + session.stats.clicked
-  }), { sent: 0, read: 0, replied: 0, clicked: 0 });
+  }), { sent: 0, simulated_reading: 0, replied: 0, clicked: 0 });
 
   return (
     <div className="py-20">
@@ -142,7 +194,7 @@ const HowItWorksChart = () => {
             Real-Time Email Automation
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Each email client session operates independently with randomized behavior patterns, while continuously reporting metrics back to the platform in real-time.
+            Each email client session operates independently with randomized behavior patterns, simulating natural human interactions while continuously reporting metrics back to the platform.
           </p>
         </div>
 
@@ -152,19 +204,19 @@ const HowItWorksChart = () => {
             <h3 className="text-2xl font-bold text-center mb-6">Sendhuman Platform</h3>
             <div className="grid grid-cols-2 gap-6">
               <div className="text-center p-4 rounded-lg bg-gradient-to-br from-blue-500/10 to-blue-600/5 border border-blue-100 dark:border-blue-900">
-                <div className="text-sm text-[#2c3e50] dark:text-gray-300 mb-1">Total Sent</div>
+                <div className="text-sm text-[#2c3e50] dark:text-gray-300 mb-1">Emails Sent</div>
                 <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">{totalStats.sent}</div>
               </div>
               <div className="text-center p-4 rounded-lg bg-gradient-to-br from-green-500/10 to-green-600/5 border border-green-100 dark:border-green-900">
-                <div className="text-sm text-[#2c3e50] dark:text-gray-300 mb-1">Total Read</div>
-                <div className="text-2xl font-bold text-green-600 dark:text-green-400">{totalStats.read}</div>
+                <div className="text-sm text-[#2c3e50] dark:text-gray-300 mb-1">Reading Simulations</div>
+                <div className="text-2xl font-bold text-green-600 dark:text-green-400">{totalStats.simulated_reading}</div>
               </div>
               <div className="text-center p-4 rounded-lg bg-gradient-to-br from-purple-500/10 to-purple-600/5 border border-purple-100 dark:border-purple-900">
-                <div className="text-sm text-[#2c3e50] dark:text-gray-300 mb-1">Total Replies</div>
+                <div className="text-sm text-[#2c3e50] dark:text-gray-300 mb-1">Replies Received</div>
                 <div className="text-2xl font-bold text-purple-600 dark:text-purple-400">{totalStats.replied}</div>
               </div>
               <div className="text-center p-4 rounded-lg bg-gradient-to-br from-orange-500/10 to-orange-600/5 border border-orange-100 dark:border-orange-900">
-                <div className="text-sm text-[#2c3e50] dark:text-gray-300 mb-1">Total Clicked</div>
+                <div className="text-sm text-[#2c3e50] dark:text-gray-300 mb-1">Link Interactions</div>
                 <div className="text-2xl font-bold text-orange-600 dark:text-orange-400">{totalStats.clicked}</div>
               </div>
             </div>
@@ -178,11 +230,11 @@ const HowItWorksChart = () => {
                 </div>
                 <div className="flex items-center gap-2 text-[#2c3e50] dark:text-gray-300">
                   <IconWrapper icon={Users} className="h-4 w-4 text-green-600" />
-                  <span>Human Behavior</span>
+                  <span>Behavior Simulation</span>
                 </div>
                 <div className="flex items-center gap-2 text-[#2c3e50] dark:text-gray-300">
                   <IconWrapper icon={BarChart3} className="h-4 w-4 text-purple-600" />
-                  <span>Real-time Analytics</span>
+                  <span>Real-time Metrics</span>
                 </div>
               </div>
             </div>
@@ -190,88 +242,83 @@ const HowItWorksChart = () => {
         </div>
 
         {/* Session Cards */}
-        <div className="hierarchy-children">
+        <div className="hierarchy-children grid-cols-2 lg:grid-cols-3">
           {sessions.map((env, index) => (
             <div key={index} className="hierarchy-child">
               <div className="chart-card chart-card-secondary shadow-md hover:translate-y-[-4px] transition-transform">
-                <div className="text-center mb-6">
+                <div className="text-center mb-4">
                   {/* Platform Logo */}
-                  <div className="inline-flex items-center justify-center w-16 h-16 mb-3 rounded-full bg-white/80 backdrop-blur-sm shadow-sm border border-gray-100">
+                  <div className="inline-flex items-center justify-center w-12 h-12 mb-2 rounded-full bg-white/80 backdrop-blur-sm shadow-sm border border-gray-100">
                     <img 
                       src={env.logo} 
                       alt={`${env.name} logo`} 
-                      className="w-10 h-10 object-contain"
+                      className="w-8 h-8 object-contain"
                     />
                   </div>
-                  <h4 className="text-lg font-semibold text-[#2c3e50] mb-2">
+                  <h4 className="text-base font-semibold text-[#2c3e50] mb-1">
                     {env.name}
                   </h4>
                   
                   {/* Mailbox */}
-                  <div className="mb-4">
-                    <span className="px-3 py-1.5 bg-blue-50 text-blue-700 rounded-full text-sm font-medium">
+                  <div className="mb-2">
+                    <span className="px-2 py-1 bg-blue-50 text-blue-700 rounded-full text-xs font-medium">
                       {env.mailbox}
                     </span>
                   </div>
                   
                   {/* Technical Details Pills */}
-                  <div className="flex flex-wrap gap-2 justify-center mb-4">
-                    <span className="px-2 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-medium">
+                  <div className="flex flex-wrap gap-1 justify-center mb-3">
+                    <span className="px-2 py-0.5 bg-blue-100 text-blue-700 rounded-full text-xs font-medium">
                       {env.browser}
                     </span>
-                    <span className="px-2 py-1 bg-green-100 text-green-700 rounded-full text-xs font-medium">
+                    <span className="px-2 py-0.5 bg-green-100 text-green-700 rounded-full text-xs font-medium">
                       {env.location}
                     </span>
-                    <div className="w-full mt-2">
-                      <span className="px-2 py-1 bg-purple-100 text-purple-700 rounded-full text-xs font-medium whitespace-nowrap">
-                        IP: {env.ip}
-                      </span>
-                    </div>
                   </div>
                 </div>
 
                 {/* Activity Stats with Icons */}
-                <div className="space-y-3">
+                <div className="space-y-2 text-sm">
                   <div className="chart-stats">
                     <span className="flex items-center text-gray-600">
-                      <IconWrapper icon={Send} className="mr-2 h-4 w-4 text-blue-600" />
-                      Emails Sent
+                      <IconWrapper icon={Send} className="mr-1.5 h-3.5 w-3.5 text-blue-600" />
+                      Sent
                     </span>
                     <span className="font-semibold text-blue-600">{env.stats.sent}</span>
                   </div>
                   <div className="chart-stats">
                     <span className="flex items-center text-gray-600">
-                      <IconWrapper icon={Eye} className="mr-2 h-4 w-4 text-green-600" />
-                      Emails Read
+                      <IconWrapper icon={Eye} className="mr-1.5 h-3.5 w-3.5 text-green-600" />
+                      Reading Simulated
                     </span>
-                    <span className="font-semibold text-green-600">{env.stats.read}</span>
+                    <span className="font-semibold text-green-600">{env.stats.simulated_reading}</span>
                   </div>
                   <div className="chart-stats">
                     <span className="flex items-center text-gray-600">
-                      <IconWrapper icon={Reply} className="mr-2 h-4 w-4 text-purple-600" />
+                      <IconWrapper icon={Reply} className="mr-1.5 h-3.5 w-3.5 text-purple-600" />
                       Replies
                     </span>
                     <span className="font-semibold text-purple-600">{env.stats.replied}</span>
                   </div>
                   <div className="chart-stats">
                     <span className="flex items-center text-gray-600">
-                      <IconWrapper icon={MousePointerClick} className="mr-2 h-4 w-4 text-orange-600" />
-                      Links Clicked
+                      <IconWrapper icon={MousePointerClick} className="mr-1.5 h-3.5 w-3.5 text-orange-600" />
+                      Link Interactions
                     </span>
                     <span className="font-semibold text-orange-600">{env.stats.clicked}</span>
                   </div>
                 </div>
 
                 {/* Session Status */}
-                <div className="mt-4 pt-4 border-t border-gray-100">
-                  <div className="flex flex-col items-center gap-3">
-                    <div className="flex items-center justify-center gap-2">
-                      <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                      <span className="text-sm text-gray-600">Active Session</span>
+                <div className="mt-3 pt-3 border-t border-gray-100">
+                  <div className="flex items-center justify-between text-xs">
+                    <div className="flex items-center gap-1.5">
+                      <div className={`w-1.5 h-1.5 rounded-full ${env.status === 'active' ? 'bg-green-500' : 'bg-yellow-500'}`}></div>
+                      <span className="text-gray-600">{env.status === 'active' ? 'Active' : 'Tab Inactive'}</span>
                     </div>
-                    <div className="flex items-center gap-2 text-sm text-gray-600">
-                      <IconWrapper icon={Clock} className="h-4 w-4 text-blue-600" />
-                      <span>Duration: {env.duration}</span>
+                    <div className="flex items-center gap-1.5 text-gray-600">
+                      <IconWrapper icon={Clock} className="h-3.5 w-3.5 text-blue-600" />
+                      <span>{env.duration}</span>
                     </div>
                   </div>
                 </div>
