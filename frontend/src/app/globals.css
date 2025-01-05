@@ -28,28 +28,38 @@
 }
 
 .hierarchy-children {
-  @apply grid grid-cols-1 md:grid-cols-3 gap-8 relative;
+  @apply grid grid-cols-1 md:grid-cols-3 gap-8 relative mt-16;
 }
 
+/* Main vertical line from platform */
 .hierarchy-children::before {
   content: '';
-  @apply absolute left-1/2 -top-8 h-8 w-px bg-blue-200 dark:bg-blue-800;
+  @apply absolute left-1/2 -top-16 h-8 w-px bg-gradient-to-b from-blue-400/50 to-blue-200/50 dark:from-blue-600/50 dark:to-blue-800/50;
   transform: translateX(-50%);
 }
 
+/* Horizontal connection line */
 .hierarchy-children::after {
   content: '';
-  @apply absolute left-[16.666%] right-[16.666%] -top-8 h-px bg-blue-200 dark:bg-blue-800;
+  @apply absolute left-[16.666%] right-[16.666%] -top-8 h-px bg-gradient-to-r from-blue-200/50 via-blue-400/50 to-blue-200/50 dark:from-blue-800/50 dark:via-blue-600/50 dark:to-blue-800/50;
 }
 
 .hierarchy-child {
   @apply relative;
 }
 
+/* Individual vertical lines to children */
 .hierarchy-child::before {
   content: '';
-  @apply absolute left-1/2 -top-8 h-8 w-px bg-blue-200 dark:bg-blue-800;
+  @apply absolute left-1/2 -top-8 h-8 w-px bg-gradient-to-b from-blue-400/50 to-blue-200/50 dark:from-blue-600/50 dark:to-blue-800/50;
   transform: translateX(-50%);
+}
+
+/* Connection points */
+.hierarchy-child::after {
+  content: '';
+  @apply absolute left-1/2 -top-8 w-2 h-2 rounded-full bg-blue-400/50 dark:bg-blue-600/50;
+  transform: translate(-50%, -50%);
 }
 
 @layer base {
