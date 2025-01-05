@@ -76,40 +76,6 @@ const WaitlistForm = ({ className = '' }: { className?: string }) => {
   );
 };
 
-const ConnectionLine = ({ position }: { position: string }) => {
-  return (
-    <div className="absolute" style={{ left: position }}>
-      {/* Vertical connection line */}
-      <div 
-        className="connection-line"
-        style={{
-          height: '120px',
-          top: '250px',
-          transform: 'translateX(-50%)',
-        }}
-      />
-      
-      {/* Animated dots */}
-      <div 
-        className="connection-dot connection-dot-down"
-        style={{
-          left: '50%',
-          top: '250px',
-          transform: 'translate(-50%, -50%)',
-        }}
-      />
-      <div 
-        className="connection-dot connection-dot-up"
-        style={{
-          left: '50%',
-          top: '370px',
-          transform: 'translate(-50%, -50%)',
-        }}
-      />
-    </div>
-  );
-};
-
 const HowItWorksChart = () => {
   const sessions = [
     {
@@ -168,28 +134,9 @@ const HowItWorksChart = () => {
   }), { sent: 0, read: 0, replied: 0, clicked: 0 });
 
   return (
-    <div className="relative w-full py-20 overflow-hidden">
-      {/* Connection Lines */}
-      <div className="absolute inset-0 pointer-events-none">
-        <ConnectionLine position="25%" />
-        <ConnectionLine position="50%" />
-        <ConnectionLine position="75%" />
-      </div>
-
+    <div className="relative w-full py-20">
       {/* Main Platform Card */}
-      <div className="relative z-10 mx-auto mb-24 max-w-lg">
-        {/* Connection Points */}
-        {[0, 1, 2].map((index) => (
-          <div 
-            key={index}
-            className="absolute -bottom-1 w-2 h-2 bg-blue-500 rounded-full"
-            style={{
-              left: `${25 + index * 25}%`,
-              transform: 'translate(-50%, 50%)',
-            }}
-          />
-        ))}
-        
+      <div className="relative z-10 mx-auto mb-12 max-w-lg">
         <div className="transform transition-all hover:translate-y-[-4px] bg-[#2c3e50] text-white rounded-xl p-6 shadow-lg">
           <h3 className="text-2xl font-bold text-center mb-4">Sendhuman</h3>
           <div className="grid grid-cols-2 gap-4">
@@ -217,9 +164,6 @@ const HowItWorksChart = () => {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto px-4">
         {sessions.map((env, index) => (
           <div key={index} className="group relative">
-            {/* Connection Point */}
-            <div className="absolute -top-1 left-1/2 w-2 h-2 bg-green-500 rounded-full transform -translate-x-1/2 -translate-y-1/2" />
-            
             <div className="transform transition-all group-hover:translate-y-[-4px] bg-gradient-to-br from-white to-blue-50 rounded-xl p-6 shadow-md border border-blue-100">
               <div className="text-center mb-6">
                 {/* Platform Logo */}
@@ -293,7 +237,7 @@ const HowItWorksChart = () => {
               <div className="mt-4 pt-4 border-t border-gray-100">
                 <div className="flex flex-col items-center gap-3">
                   <div className="flex items-center justify-center gap-2">
-                    <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                    <div className="w-2 h-2 bg-green-500 rounded-full"></div>
                     <span className="text-sm text-gray-600">Active Session</span>
                   </div>
                   <div className="flex items-center gap-2 text-sm text-gray-600">
