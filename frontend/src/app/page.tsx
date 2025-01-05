@@ -145,8 +145,8 @@ const HowItWorksChart = () => {
               <div 
                 className="absolute w-[2px] bg-gradient-to-b from-blue-500/50 via-blue-500/30 to-transparent"
                 style={{
-                  top: '80px',
-                  height: '120px',
+                  top: '250px',
+                  height: '140px',
                   transform: 'translateX(-50%)',
                 }}
               />
@@ -155,8 +155,8 @@ const HowItWorksChart = () => {
               <div 
                 className="absolute w-[2px] bg-gradient-to-t from-green-500/50 via-green-500/30 to-transparent"
                 style={{
-                  top: '80px',
-                  height: '120px',
+                  top: '250px',
+                  height: '140px',
                   transform: 'translateX(-50%)',
                 }}
               />
@@ -165,7 +165,7 @@ const HowItWorksChart = () => {
               <div 
                 className="absolute w-2 h-2 rounded-full bg-blue-500"
                 style={{
-                  top: '80px',
+                  top: '250px',
                   transform: 'translateX(-50%)',
                   animation: 'moveDown 3s infinite linear',
                   animationDelay: `${index * 0.5}s`
@@ -174,7 +174,7 @@ const HowItWorksChart = () => {
               <div 
                 className="absolute w-2 h-2 rounded-full bg-green-500"
                 style={{
-                  top: '200px',
+                  top: '390px',
                   transform: 'translateX(-50%)',
                   animation: 'moveUp 3s infinite linear',
                   animationDelay: `${index * 0.5}s`
