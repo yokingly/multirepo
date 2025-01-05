@@ -2,7 +2,6 @@
 
 import * as React from 'react';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
 
 export function Navigation() {
   return (
@@ -10,13 +9,9 @@ export function Navigation() {
       <div className="container flex h-14 items-center">
         <div className="flex flex-1 items-center justify-between">
           <Link href="/" className="flex items-center space-x-2">
-            <motion.div
-              initial={{ scale: 0.8 }}
-              animate={{ scale: 1 }}
-              className="font-bold text-xl bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
-            >
+            <div className="font-bold text-xl bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
               SendHuman
-            </motion.div>
+            </div>
           </Link>
           <nav className="flex items-center space-x-6">
             <Link
