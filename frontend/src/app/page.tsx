@@ -72,6 +72,86 @@ const WaitlistForm = ({ className = '' }: { className?: string }) => {
   );
 };
 
+const HowItWorksChart = () => {
+  return (
+    <div className="relative w-full py-20 overflow-hidden">
+      {/* Main Platform Card */}
+      <div className="relative z-10 mx-auto mb-16 max-w-lg">
+        <div className="transform transition-all hover:translate-y-[-4px] bg-[#2c3e50] text-white rounded-xl p-6 shadow-lg">
+          <h3 className="text-xl font-bold text-center mb-2">SendHuman Platform</h3>
+          <p className="text-sm text-center text-gray-200">Smart Email Automation That Stays Undetected</p>
+        </div>
+        
+        {/* Animated Connection Lines */}
+        <div className="absolute left-1/2 transform -translate-x-1/2 w-0.5 h-12 bg-gradient-to-b from-[#2c3e50] to-[#3498db] animate-pulse" />
+      </div>
+
+      {/* Container Cards */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto px-4">
+        {[1, 2, 3].map((num) => (
+          <div key={num} className="group relative">
+            <div className="transform transition-all group-hover:translate-y-[-4px] bg-gradient-to-br from-white to-blue-50 rounded-xl p-6 shadow-md border border-blue-100">
+              <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-6 w-0.5 h-6 bg-[#3498db] opacity-0 md:opacity-100" />
+              
+              <div className="text-center mb-4">
+                <div className="inline-block p-3 bg-blue-100 rounded-full mb-3">
+                  <svg className="w-6 h-6 text-[#3498db]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                  </svg>
+                </div>
+                <h4 className="text-lg font-semibold text-[#2c3e50]">
+                  Isolated Sending Environment #{num}
+                </h4>
+              </div>
+
+              <ul className="space-y-2 text-sm text-gray-600">
+                <li className="flex items-center">
+                  <svg className="w-4 h-4 mr-2 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  Private Browser Session
+                </li>
+                <li className="flex items-center">
+                  <svg className="w-4 h-4 mr-2 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  Unique Identity & Location
+                </li>
+                <li className="flex items-center">
+                  <svg className="w-4 h-4 mr-2 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  Natural Email Sending
+                </li>
+                <li className="flex items-center">
+                  <svg className="w-4 h-4 mr-2 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  Reports Results Back
+                </li>
+              </ul>
+
+              {/* Hover Tooltip */}
+              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                <div className="bg-black bg-opacity-75 text-white text-sm p-2 rounded">
+                  Click to learn more about this environment
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Description */}
+      <div className="mt-12 text-center max-w-2xl mx-auto px-4">
+        <p className="text-gray-600">
+          SendHuman runs multiple private email environments that work independently to send your emails naturally, just like a human would do it manually.
+        </p>
+      </div>
+    </div>
+  );
+};
+
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen bg-background">
@@ -131,6 +211,11 @@ export default function Home() {
             </div>
           </div>
         </div>
+      </section>
+
+      {/* Add the HowItWorksChart component after the hero section */}
+      <section className="bg-gradient-to-b from-white to-gray-50">
+        <HowItWorksChart />
       </section>
 
       {/* Features Section */}
