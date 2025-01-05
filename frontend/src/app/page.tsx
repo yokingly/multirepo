@@ -135,8 +135,32 @@ const HowItWorksChart = () => {
 
   return (
     <div className="relative w-full py-20 overflow-hidden">
+      {/* Background Connection Patterns */}
+      <div className="absolute inset-0 pointer-events-none">
+        {/* Left Connection */}
+        <div className="absolute left-1/4 top-1/2 w-32 h-32 transform -translate-x-1/2 -translate-y-1/2">
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-transparent animate-pulse"></div>
+          <div className="absolute inset-0 bg-gradient-to-tl from-green-500/10 to-transparent animate-pulse delay-150"></div>
+        </div>
+        {/* Center Connection */}
+        <div className="absolute left-1/2 top-1/2 w-32 h-32 transform -translate-x-1/2 -translate-y-1/2">
+          <div className="absolute inset-0 bg-gradient-to-b from-blue-500/10 to-transparent animate-pulse"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-green-500/10 to-transparent animate-pulse delay-150"></div>
+        </div>
+        {/* Right Connection */}
+        <div className="absolute left-3/4 top-1/2 w-32 h-32 transform -translate-x-1/2 -translate-y-1/2">
+          <div className="absolute inset-0 bg-gradient-to-bl from-blue-500/10 to-transparent animate-pulse"></div>
+          <div className="absolute inset-0 bg-gradient-to-tr from-green-500/10 to-transparent animate-pulse delay-150"></div>
+        </div>
+      </div>
+
       {/* Main Platform Card */}
       <div className="relative z-10 mx-auto mb-16 max-w-lg">
+        {/* Connection Points */}
+        <div className="absolute bottom-0 left-1/4 w-2 h-2 bg-blue-500 rounded-full transform translate-y-1/2"></div>
+        <div className="absolute bottom-0 left-1/2 w-2 h-2 bg-blue-500 rounded-full transform translate-y-1/2 -translate-x-1/2"></div>
+        <div className="absolute bottom-0 left-3/4 w-2 h-2 bg-blue-500 rounded-full transform translate-y-1/2"></div>
+        
         <div className="transform transition-all hover:translate-y-[-4px] bg-[#2c3e50] text-white rounded-xl p-6 shadow-lg">
           <h3 className="text-2xl font-bold text-center mb-4">Sendhuman</h3>
           <div className="grid grid-cols-2 gap-4">
@@ -160,55 +184,13 @@ const HowItWorksChart = () => {
         </div>
       </div>
 
-      {/* SVG Connection Lines */}
-      <div className="absolute top-0 left-0 w-full h-full pointer-events-none" style={{ top: '140px' }}>
-        <svg className="w-full h-[200px]" preserveAspectRatio="xMidYMid meet" viewBox="0 0 1200 200">
-          {/* Connection Lines for each container */}
-          {[
-            { x: 300, y: 120 },  // Left container
-            { x: 600, y: 120 },  // Middle container
-            { x: 900, y: 120 }   // Right container
-          ].map(({ x, y }, index) => (
-            <g key={index}>
-              {/* Input Line (Platform to Container) */}
-              <line 
-                x1="600" y1="0" 
-                x2={x} y2={y} 
-                className="stroke-[#3498db] stroke-2 opacity-50"
-                strokeDasharray="4,4"
-              />
-              {/* Output Line (Container to Platform) */}
-              <line 
-                x1={x} y1={y} 
-                x2="600" y2="0" 
-                className="stroke-[#2ecc71] stroke-2 opacity-50"
-                strokeDasharray="4,4"
-              />
-              {/* Animated Dots - Input */}
-              <circle r="3" className="fill-blue-500">
-                <animateMotion 
-                  dur="3s" 
-                  repeatCount="indefinite"
-                  path={`M600,0 L${x},${y}`}
-                />
-              </circle>
-              {/* Animated Dots - Output */}
-              <circle r="3" className="fill-green-500">
-                <animateMotion 
-                  dur="3s" 
-                  repeatCount="indefinite"
-                  path={`M${x},${y} L600,0`}
-                />
-              </circle>
-            </g>
-          ))}
-        </svg>
-      </div>
-
       {/* Container Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto px-4">
         {sessions.map((env, index) => (
           <div key={index} className="group relative">
+            {/* Connection Point */}
+            <div className="absolute top-0 left-1/2 w-2 h-2 bg-green-500 rounded-full transform -translate-y-1/2 -translate-x-1/2"></div>
+            
             <div className="transform transition-all group-hover:translate-y-[-4px] bg-gradient-to-br from-white to-blue-50 rounded-xl p-6 shadow-md border border-blue-100">
               <div className="text-center mb-6">
                 {/* Platform Logo */}
