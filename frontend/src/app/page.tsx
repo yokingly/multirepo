@@ -24,12 +24,53 @@ const IconWrapper: FC<LucideProps & { icon: any }> = ({ icon: Icon, ...props }) 
 
 export default function Home() {
   const [email, setEmail] = useState('');
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleJoinWaitlist = (e: React.FormEvent) => {
+  const handleJoinWaitlist = async (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: Implement waitlist signup
-    console.log('Join waitlist:', email);
+    // TODO: Implement actual waitlist signup API call
+    try {
+      // Simulate API call
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      setIsSubmitted(true);
+      setEmail('');
+      // Reset submission state after 3 seconds
+      setTimeout(() => setIsSubmitted(false), 3000);
+    } catch (error) {
+      console.error('Error joining waitlist:', error);
+    }
   };
+
+  const WaitlistForm = ({ className = '' }) => (
+    <form onSubmit={handleJoinWaitlist} className={`flex gap-2 ${className}`}>
+      <input
+        type="email"
+        placeholder="Enter your email"
+        className="flex-1 h-10 px-4 rounded-md border border-input bg-background/80 backdrop-blur-sm text-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-blue-500"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        required
+        disabled={isSubmitted}
+      />
+      <button 
+        type="submit" 
+        className={`button-primary ${isSubmitted ? 'bg-green-600' : 'bg-blue-600 hover:bg-blue-700'} flex items-center`}
+        disabled={isSubmitted}
+      >
+        {isSubmitted ? (
+          <>
+            Added to Waitlist
+            <IconWrapper icon={CheckCircle2} className="ml-2 h-4 w-4" />
+          </>
+        ) : (
+          <>
+            Join Waitlist
+            <IconWrapper icon={ArrowRight} className="ml-2 h-4 w-4" />
+          </>
+        )}
+      </button>
+    </form>
+  );
 
   return (
     <div className="flex flex-col min-h-screen bg-background">
@@ -56,7 +97,9 @@ export default function Home() {
             <div className="space-y-4">
               <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
                 Send cold emails like a{" "}
-                <span className="text-blue-600 dark:text-blue-400">Human Being</span>
+                <span className="text-blue-600">human being</span>
+                {" "}
+                <span>would</span>
               </h1>
               <p className="mx-auto max-w-[800px] text-lg text-muted-foreground md:text-xl">
                 Advanced human behavior simulation that makes your outreach truly indistinguishable from manual sending.
@@ -81,20 +124,7 @@ export default function Home() {
             </div>
 
             <div className="w-full max-w-md space-y-4">
-              <form onSubmit={handleJoinWaitlist} className="flex gap-2">
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-                  className="flex-1 h-10 px-4 rounded-md border border-input bg-background/80 backdrop-blur-sm text-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-blue-500"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                />
-                <button type="submit" className="button-primary bg-blue-600 hover:bg-blue-700">
-                  Join Waitlist
-                  <IconWrapper icon={ArrowRight} className="ml-2 h-4 w-4" />
-                </button>
-              </form>
+              <WaitlistForm />
               <p className="text-sm text-muted-foreground">
                 Be the first to get access when we launch. No credit card required.
               </p>
@@ -348,20 +378,7 @@ export default function Home() {
               Join thousands of professionals who trust SendHuman to deliver their cold emails with human-like precision.
             </p>
             <div className="w-full max-w-md space-y-4">
-              <form onSubmit={handleJoinWaitlist} className="flex gap-2">
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-                  className="flex-1 h-10 px-4 rounded-md border border-input bg-background/80 backdrop-blur-sm text-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-blue-500"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                />
-                <button type="submit" className="button-primary bg-blue-600 hover:bg-blue-700">
-                  Join Waitlist
-                  <IconWrapper icon={ArrowRight} className="ml-2 h-4 w-4" />
-                </button>
-              </form>
+              <WaitlistForm />
               <p className="text-sm text-muted-foreground">
                 Limited spots available. Join the waitlist to secure your access.
               </p>
