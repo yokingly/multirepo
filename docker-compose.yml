@@ -15,15 +15,15 @@ services:
       - app-network
     restart: unless-stopped
 
-  front-end:
+  frontend:
     build:
-      context: ./front-end
+      context: ./frontend
     ports:
       - "3000:3000"
     environment:
       - NODE_ENV=development
     volumes:
-      - ./front-end:/app
+      - ./frontend:/app
       - /app/node_modules
     networks:
       - app-network
