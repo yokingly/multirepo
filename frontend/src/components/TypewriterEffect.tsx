@@ -76,7 +76,7 @@ export const TypewriterEffect = ({ words, className = '' }: TypewriterEffectProp
   return (
     <span className={className}>
       {currentText}
-      <span className="animate-pulse">|</span>
+      <span className="animate-pulse border-l border-current" style={{ height: '1em', marginLeft: '1px' }}></span>
     </span>
   );
 }; 
