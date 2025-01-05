@@ -78,27 +78,95 @@ const HowItWorksChart = () => {
       {/* Main Platform Card */}
       <div className="relative z-10 mx-auto mb-16 max-w-lg">
         <div className="transform transition-all hover:translate-y-[-4px] bg-[#2c3e50] text-white rounded-xl p-6 shadow-lg">
-          <h3 className="text-2xl font-bold text-center">SendHuman</h3>
+          <h3 className="text-2xl font-bold text-center">Sendhuman</h3>
         </div>
-        
-        {/* Animated Connection Lines with Arrows */}
-        <div className="absolute left-1/2 -translate-x-1/2 w-[900px] h-16">
+      </div>
+
+      {/* SVG Connection Lines */}
+      <div className="absolute top-0 left-0 w-full h-full pointer-events-none" style={{ top: '120px' }}>
+        <svg className="w-full h-[200px]" preserveAspectRatio="xMidYMid meet" viewBox="0 0 1200 200">
           {/* Left Connection */}
-          <div className="absolute left-0 w-1/3 flex flex-col items-center">
-            <div className="h-0.5 w-full bg-gradient-to-r from-[#2c3e50] to-[#3498db] animate-pulse"></div>
-            <div className="mt-2 h-0.5 w-full bg-gradient-to-l from-[#2c3e50] to-[#3498db] animate-pulse"></div>
-          </div>
+          <path 
+            d="M600,10 L300,180" 
+            className="stroke-[#3498db] stroke-2 opacity-50"
+            strokeDasharray="4,4"
+          />
+          <path 
+            d="M300,170 L600,0" 
+            className="stroke-[#2c3e50] stroke-2 opacity-50"
+            strokeDasharray="4,4"
+          />
+          
           {/* Middle Connection */}
-          <div className="absolute left-1/3 w-1/3 flex flex-col items-center">
-            <div className="h-0.5 w-full bg-gradient-to-r from-[#2c3e50] to-[#3498db] animate-pulse"></div>
-            <div className="mt-2 h-0.5 w-full bg-gradient-to-l from-[#2c3e50] to-[#3498db] animate-pulse"></div>
-          </div>
+          <path 
+            d="M600,10 L600,180" 
+            className="stroke-[#3498db] stroke-2 opacity-50"
+            strokeDasharray="4,4"
+          />
+          <path 
+            d="M600,170 L600,0" 
+            className="stroke-[#2c3e50] stroke-2 opacity-50"
+            strokeDasharray="4,4"
+          />
+          
           {/* Right Connection */}
-          <div className="absolute left-2/3 w-1/3 flex flex-col items-center">
-            <div className="h-0.5 w-full bg-gradient-to-r from-[#2c3e50] to-[#3498db] animate-pulse"></div>
-            <div className="mt-2 h-0.5 w-full bg-gradient-to-l from-[#2c3e50] to-[#3498db] animate-pulse"></div>
-          </div>
-        </div>
+          <path 
+            d="M600,10 L900,180" 
+            className="stroke-[#3498db] stroke-2 opacity-50"
+            strokeDasharray="4,4"
+          />
+          <path 
+            d="M900,170 L600,0" 
+            className="stroke-[#2c3e50] stroke-2 opacity-50"
+            strokeDasharray="4,4"
+          />
+
+          {/* Animated Dots (Forward) */}
+          <circle className="fill-blue-500 animate-[moveDown_3s_linear_infinite]">
+            <animateMotion 
+              dur="3s" 
+              repeatCount="indefinite"
+              path="M600,10 L300,180"
+            />
+          </circle>
+          <circle className="fill-blue-500 animate-[moveDown_3s_linear_infinite]">
+            <animateMotion 
+              dur="3s" 
+              repeatCount="indefinite"
+              path="M600,10 L600,180"
+            />
+          </circle>
+          <circle className="fill-blue-500 animate-[moveDown_3s_linear_infinite]">
+            <animateMotion 
+              dur="3s" 
+              repeatCount="indefinite"
+              path="M600,10 L900,180"
+            />
+          </circle>
+
+          {/* Animated Dots (Backward) */}
+          <circle className="fill-green-500 animate-[moveUp_3s_linear_infinite]">
+            <animateMotion 
+              dur="3s" 
+              repeatCount="indefinite"
+              path="M300,170 L600,0"
+            />
+          </circle>
+          <circle className="fill-green-500 animate-[moveUp_3s_linear_infinite]">
+            <animateMotion 
+              dur="3s" 
+              repeatCount="indefinite"
+              path="M600,170 L600,0"
+            />
+          </circle>
+          <circle className="fill-green-500 animate-[moveUp_3s_linear_infinite]">
+            <animateMotion 
+              dur="3s" 
+              repeatCount="indefinite"
+              path="M900,170 L600,0"
+            />
+          </circle>
+        </svg>
       </div>
 
       {/* Container Cards */}
@@ -106,11 +174,7 @@ const HowItWorksChart = () => {
         {[
           {
             name: "Gmail Session",
-            logo: `<svg className="w-8 h-8" viewBox="0 0 24 24" fill="none">
-              <path d="M22.5 4.5v15c0 .85-.65 1.5-1.5 1.5H3c-.85 0-1.5-.65-1.5-1.5v-15c0-.85.65-1.5 1.5-1.5h18c.85 0 1.5.65 1.5 1.5z" fill="#E6E6E6"/>
-              <path d="M22.5 4.5L12 12L1.5 4.5" stroke="#DB4437" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-              <path d="M12 12L1.5 4.5h19.5L12 12z" fill="#DB4437"/>
-            </svg>`,
+            logo: "/gmail icon.webp",
             browser: "Chrome",
             location: "New York, USA",
             ip: "172.217.168.46",
@@ -123,11 +187,7 @@ const HowItWorksChart = () => {
           },
           {
             name: "Gmail Session",
-            logo: `<svg className="w-8 h-8" viewBox="0 0 24 24" fill="none">
-              <path d="M22.5 4.5v15c0 .85-.65 1.5-1.5 1.5H3c-.85 0-1.5-.65-1.5-1.5v-15c0-.85.65-1.5 1.5-1.5h18c.85 0 1.5.65 1.5 1.5z" fill="#E6E6E6"/>
-              <path d="M22.5 4.5L12 12L1.5 4.5" stroke="#DB4437" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-              <path d="M12 12L1.5 4.5h19.5L12 12z" fill="#DB4437"/>
-            </svg>`,
+            logo: "/gmail icon.webp",
             browser: "Firefox",
             location: "Amsterdam, NL",
             ip: "216.58.213.110",
@@ -140,11 +200,7 @@ const HowItWorksChart = () => {
           },
           {
             name: "Outlook Session",
-            logo: `<svg className="w-8 h-8" viewBox="0 0 24 24" fill="none">
-              <path d="M21 4H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2z" fill="#0078D4"/>
-              <path d="M3 4h18v6H3V4z" fill="#0078D4"/>
-              <path d="M3 10h18v10H3V10z" fill="#00BCF2"/>
-            </svg>`,
+            logo: "/outlook-logo.png",
             browser: "Edge",
             location: "London, UK",
             ip: "40.99.143.165",
@@ -160,7 +216,13 @@ const HowItWorksChart = () => {
             <div className="transform transition-all group-hover:translate-y-[-4px] bg-gradient-to-br from-white to-blue-50 rounded-xl p-6 shadow-md border border-blue-100">
               <div className="text-center mb-6">
                 {/* Platform Logo */}
-                <div className="inline-block mb-3" dangerouslySetInnerHTML={{ __html: env.logo }} />
+                <div className="inline-flex items-center justify-center w-16 h-16 mb-3 rounded-full bg-white/80 backdrop-blur-sm shadow-sm border border-gray-100">
+                  <img 
+                    src={env.logo} 
+                    alt={`${env.name} logo`} 
+                    className="w-10 h-10 object-contain"
+                  />
+                </div>
                 <h4 className="text-lg font-semibold text-[#2c3e50] mb-2">
                   {env.name}
                 </h4>
@@ -477,7 +539,7 @@ export default function Home() {
         <div className="container">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">
-              Why choose SendHuman?
+              Why choose Sendhuman?
             </h2>
             <p className="mt-4 text-lg text-muted-foreground">
               Designed for sales teams who want to scale their outreach without losing the human touch
@@ -541,7 +603,7 @@ export default function Home() {
               Ready to Scale Your Cold Outreach?
             </h2>
             <p className="max-w-[600px] text-lg text-muted-foreground">
-              Join thousands of professionals who trust SendHuman to deliver their cold emails with human-like precision.
+              Join thousands of professionals who trust Sendhuman to deliver their cold emails with human-like precision.
             </p>
             <div className="w-full max-w-md space-y-4">
               <WaitlistForm />
@@ -559,7 +621,7 @@ export default function Home() {
           <div className="py-12">
             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
               <div className="space-y-4">
-                <h4 className="text-lg font-semibold">SendHuman</h4>
+                <h4 className="text-lg font-semibold">Sendhuman</h4>
                 <p className="text-sm text-muted-foreground">
                   Making cold emails feel warm and personal.
                 </p>
@@ -637,7 +699,7 @@ export default function Home() {
           <div className="border-t py-6">
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
               <p className="text-sm text-muted-foreground">
-                © {new Date().getFullYear()} SendHuman. All rights reserved.
+                © {new Date().getFullYear()} Sendhuman. All rights reserved.
               </p>
               <div className="flex items-center space-x-4 text-sm text-muted-foreground">
                 <Link href="/terms" className="hover:text-foreground">
