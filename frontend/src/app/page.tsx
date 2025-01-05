@@ -22,13 +22,12 @@ const IconWrapper: FC<LucideProps & { icon: any }> = ({ icon: Icon, ...props }) 
   return <Icon {...props} />;
 };
 
-export default function Home() {
+const WaitlistForm = ({ className = '' }: { className?: string }) => {
   const [email, setEmail] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleJoinWaitlist = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: Implement actual waitlist signup API call
     try {
       // Simulate API call
       await new Promise(resolve => setTimeout(resolve, 1000));
@@ -41,8 +40,8 @@ export default function Home() {
     }
   };
 
-  const WaitlistForm = ({ className = '' }) => (
-    <form onSubmit={handleJoinWaitlist} className={`flex gap-2 ${className}`}>
+  return (
+    <form onSubmit={handleSubmit} className={`flex gap-2 ${className}`}>
       <input
         type="email"
         placeholder="Enter your email"
@@ -71,7 +70,9 @@ export default function Home() {
       </button>
     </form>
   );
+};
 
+export default function Home() {
   return (
     <div className="flex flex-col min-h-screen bg-background">
       <Navigation />
