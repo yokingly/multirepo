@@ -38,12 +38,12 @@ export default function Home() {
             
             <div className="space-y-4">
               <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
-                Send Cold Emails Like a{" "}
-                <span className="text-blue-600 dark:text-blue-400">Human Being</span>
+                Cold Outreach That&apos;s{" "}
+                <span className="text-blue-600 dark:text-blue-400">Undetectable</span>
               </h1>
               <p className="mx-auto max-w-[800px] text-lg text-muted-foreground md:text-xl">
-                Scale your outreach from 10 to 10,000 emails while maintaining human-like precision. 
-                No APIs, no OAuth2 - just natural email sending through Gmail&apos;s UI.
+                Advanced human behavior simulation that makes your cold emails indistinguishable from real users.
+                Built for enterprise sales teams who need unmatched deliverability.
               </p>
             </div>
 
@@ -51,15 +51,15 @@ export default function Home() {
             <div className="flex flex-wrap justify-center gap-4 text-sm text-muted-foreground">
               <div className="flex items-center">
                 <CheckCircle2 className="mr-2 h-4 w-4 text-blue-600" />
-                <span>Human-like sending patterns</span>
+                <span>Complete session simulation</span>
               </div>
               <div className="flex items-center">
                 <CheckCircle2 className="mr-2 h-4 w-4 text-blue-600" />
-                <span>Smart proxy rotation</span>
+                <span>Premium residential proxies</span>
               </div>
               <div className="flex items-center">
                 <CheckCircle2 className="mr-2 h-4 w-4 text-blue-600" />
-                <span>Advanced analytics</span>
+                <span>Enterprise-ready platform</span>
               </div>
             </div>
 
@@ -82,12 +82,6 @@ export default function Home() {
                 Be the first to get access when we launch. No credit card required.
               </p>
             </div>
-            <div className="flex items-center gap-8 pt-4">
-              <Link href="/demo" className="button-secondary backdrop-blur-sm bg-background/80">
-                <Mail className="mr-2 h-4 w-4" />
-                Watch Demo
-              </Link>
-            </div>
           </div>
         </div>
       </section>
@@ -97,10 +91,11 @@ export default function Home() {
         <div className="container">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">
-              Everything you need for successful cold outreach
+              Advanced Human Behavior Simulation
             </h2>
             <p className="mt-4 text-lg text-muted-foreground">
-              Powerful features designed to maximize your email deliverability and response rates
+              Our platform goes beyond simple email sending - we replicate complete human interaction patterns
+              that make detection virtually impossible for email service providers
             </p>
           </div>
           <div className="grid gap-8 md:grid-cols-3">
@@ -110,22 +105,22 @@ export default function Home() {
                 <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-blue-100 dark:bg-blue-900">
                   <Mail className="h-5 w-5 text-blue-600 dark:text-blue-300" />
                 </div>
-                <h3 className="text-xl font-bold">Natural Email Sending</h3>
+                <h3 className="text-xl font-bold">Complete Session Simulation</h3>
                 <p className="text-muted-foreground">
-                  Send emails through Gmail&apos;s UI with human-like patterns, random delays, and natural typing variations.
+                  Replicates natural user behavior including navigation patterns, reading times, and realistic typing variations.
                 </p>
                 <ul className="space-y-2 text-sm text-muted-foreground">
                   <li className="flex items-center">
                     <CheckCircle2 className="mr-2 h-4 w-4 text-blue-600" />
-                    <span>Random typing delays</span>
+                    <span>Natural page navigation</span>
                   </li>
                   <li className="flex items-center">
                     <CheckCircle2 className="mr-2 h-4 w-4 text-blue-600" />
-                    <span>Natural send patterns</span>
+                    <span>Realistic reading delays</span>
                   </li>
                   <li className="flex items-center">
                     <CheckCircle2 className="mr-2 h-4 w-4 text-blue-600" />
-                    <span>Human-like behavior</span>
+                    <span>Human typing patterns</span>
                   </li>
                 </ul>
               </div>
@@ -136,22 +131,22 @@ export default function Home() {
                 <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-purple-100 dark:bg-purple-900">
                   <Shield className="h-5 w-5 text-purple-600 dark:text-purple-300" />
                 </div>
-                <h3 className="text-xl font-bold">Smart Proxy Rotation</h3>
+                <h3 className="text-xl font-bold">Enterprise-Grade Security</h3>
                 <p className="text-muted-foreground">
-                  Maintain high deliverability with intelligent IP rotation, session management, and automated warmup.
+                  Industry-leading infrastructure with residential proxies and sophisticated fingerprint management.
                 </p>
                 <ul className="space-y-2 text-sm text-muted-foreground">
                   <li className="flex items-center">
                     <CheckCircle2 className="mr-2 h-4 w-4 text-purple-600" />
-                    <span>Automated IP warmup</span>
+                    <span>Premium residential IPs</span>
                   </li>
                   <li className="flex items-center">
                     <CheckCircle2 className="mr-2 h-4 w-4 text-purple-600" />
-                    <span>Smart session handling</span>
+                    <span>Fixed fingerprints per inbox</span>
                   </li>
                   <li className="flex items-center">
                     <CheckCircle2 className="mr-2 h-4 w-4 text-purple-600" />
-                    <span>High deliverability</span>
+                    <span>Automated session management</span>
                   </li>
                 </ul>
               </div>
@@ -162,22 +157,22 @@ export default function Home() {
                 <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-green-100 dark:bg-green-900">
                   <BarChart3 className="h-5 w-5 text-green-600 dark:text-green-300" />
                 </div>
-                <h3 className="text-xl font-bold">Advanced Analytics</h3>
+                <h3 className="text-xl font-bold">Enterprise Scale</h3>
                 <p className="text-muted-foreground">
-                  Track opens, replies, and engagement with detailed insights to optimize your outreach campaigns.
+                  Built for high-volume sales teams with advanced monitoring and team management capabilities.
                 </p>
                 <ul className="space-y-2 text-sm text-muted-foreground">
                   <li className="flex items-center">
                     <CheckCircle2 className="mr-2 h-4 w-4 text-green-600" />
-                    <span>Real-time tracking</span>
+                    <span>Team collaboration tools</span>
                   </li>
                   <li className="flex items-center">
                     <CheckCircle2 className="mr-2 h-4 w-4 text-green-600" />
-                    <span>Detailed insights</span>
+                    <span>Advanced monitoring</span>
                   </li>
                   <li className="flex items-center">
                     <CheckCircle2 className="mr-2 h-4 w-4 text-green-600" />
-                    <span>Campaign optimization</span>
+                    <span>Scalable infrastructure</span>
                   </li>
                 </ul>
               </div>
