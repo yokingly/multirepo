@@ -154,46 +154,47 @@ const HowItWorksChart = () => {
       </div>
 
       {/* SVG Connection Lines */}
-      <div className="absolute top-0 left-0 w-full h-full pointer-events-none" style={{ top: '120px' }}>
-        <svg className="w-full h-[300px]" preserveAspectRatio="xMidYMid meet" viewBox="0 0 1200 300">
+      <div className="absolute top-0 left-0 w-full h-full pointer-events-none" style={{ top: '140px' }}>
+        <svg className="w-full h-[200px]" preserveAspectRatio="xMidYMid meet" viewBox="0 0 1200 200">
           {/* Connection Lines for each container */}
-          {[0, 1, 2].map((index) => {
-            const x = 400 + (index - 1) * 300;
-            return (
-              <g key={index}>
-                {/* Input Line (Platform to Container) */}
-                <line 
-                  x1="600" y1="80" 
-                  x2={x} y2="80" 
-                  className="stroke-[#3498db] stroke-2 opacity-50"
-                  strokeDasharray="4,4"
+          {[
+            { x: 300, offset: -150 },  // Left container
+            { x: 600, offset: 0 },    // Middle container
+            { x: 900, offset: 150 }   // Right container
+          ].map(({ x, offset }, index) => (
+            <g key={index}>
+              {/* Input Line (Platform to Container) */}
+              <line 
+                x1={600} y1="40" 
+                x2={x} y2="120" 
+                className="stroke-[#3498db] stroke-2 opacity-50"
+                strokeDasharray="4,4"
+              />
+              {/* Output Line (Container to Platform) */}
+              <line 
+                x1={x} y1="130" 
+                x2={600} y2="50" 
+                className="stroke-[#2ecc71] stroke-2 opacity-50"
+                strokeDasharray="4,4"
+              />
+              {/* Animated Dots - Input */}
+              <circle r="3" className="fill-blue-500">
+                <animateMotion 
+                  dur="3s" 
+                  repeatCount="indefinite"
+                  path={`M600,40 L${x},120`}
                 />
-                {/* Output Line (Container to Platform) */}
-                <line 
-                  x1={x} y1="100" 
-                  x2="600" y2="100" 
-                  className="stroke-[#2ecc71] stroke-2 opacity-50"
-                  strokeDasharray="4,4"
+              </circle>
+              {/* Animated Dots - Output */}
+              <circle r="3" className="fill-green-500">
+                <animateMotion 
+                  dur="3s" 
+                  repeatCount="indefinite"
+                  path={`M${x},130 L600,50`}
                 />
-                {/* Animated Dots - Input */}
-                <circle r="3" className="fill-blue-500">
-                  <animateMotion 
-                    dur="3s" 
-                    repeatCount="indefinite"
-                    path={`M600,80 L${x},80`}
-                  />
-                </circle>
-                {/* Animated Dots - Output */}
-                <circle r="3" className="fill-green-500">
-                  <animateMotion 
-                    dur="3s" 
-                    repeatCount="indefinite"
-                    path={`M${x},100 L600,100`}
-                  />
-                </circle>
-              </g>
-            );
-          })}
+              </circle>
+            </g>
+          ))}
         </svg>
       </div>
 
