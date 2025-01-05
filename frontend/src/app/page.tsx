@@ -10,7 +10,11 @@ import {
   Users, 
   Clock, 
   ArrowRight, 
-  CheckCircle2 
+  CheckCircle2, 
+  Send, 
+  Eye, 
+  Reply, 
+  MousePointerClick 
 } from 'lucide-react';
 import type { LucideProps } from 'lucide-react';
 import { FC, useState } from 'react';
@@ -81,6 +85,7 @@ const HowItWorksChart = () => {
       location: "🇺🇸 New York, USA",
       ip: "172.217.168.46",
       mailbox: "daniel@sendhuman.com",
+      duration: "2h 15m",
       stats: {
         sent: 23,
         read: 12,
@@ -95,6 +100,7 @@ const HowItWorksChart = () => {
       location: "🇳🇱 Amsterdam, NL",
       ip: "216.58.213.110",
       mailbox: "dan@sendhuman.ai",
+      duration: "1h 45m",
       stats: {
         sent: 18,
         read: 8,
@@ -109,6 +115,7 @@ const HowItWorksChart = () => {
       location: "🇬🇧 London, UK",
       ip: "40.99.143.165",
       mailbox: "danny@sendhuman.co",
+      duration: "3h 30m",
       stats: {
         sent: 19,
         read: 9,
@@ -158,22 +165,22 @@ const HowItWorksChart = () => {
         <svg className="w-full h-[200px]" preserveAspectRatio="xMidYMid meet" viewBox="0 0 1200 200">
           {/* Connection Lines for each container */}
           {[
-            { x: 300, offset: -150 },  // Left container
-            { x: 600, offset: 0 },    // Middle container
-            { x: 900, offset: 150 }   // Right container
-          ].map(({ x, offset }, index) => (
+            { x: 300, y: 120 },  // Left container
+            { x: 600, y: 120 },  // Middle container
+            { x: 900, y: 120 }   // Right container
+          ].map(({ x, y }, index) => (
             <g key={index}>
               {/* Input Line (Platform to Container) */}
               <line 
-                x1={600} y1="40" 
-                x2={x} y2="120" 
+                x1="600" y1="0" 
+                x2={x} y2={y} 
                 className="stroke-[#3498db] stroke-2 opacity-50"
                 strokeDasharray="4,4"
               />
               {/* Output Line (Container to Platform) */}
               <line 
-                x1={x} y1="130" 
-                x2={600} y2="50" 
+                x1={x} y1={y} 
+                x2="600" y2="0" 
                 className="stroke-[#2ecc71] stroke-2 opacity-50"
                 strokeDasharray="4,4"
               />
@@ -182,7 +189,7 @@ const HowItWorksChart = () => {
                 <animateMotion 
                   dur="3s" 
                   repeatCount="indefinite"
-                  path={`M600,40 L${x},120`}
+                  path={`M600,0 L${x},${y}`}
                 />
               </circle>
               {/* Animated Dots - Output */}
@@ -190,7 +197,7 @@ const HowItWorksChart = () => {
                 <animateMotion 
                   dur="3s" 
                   repeatCount="indefinite"
-                  path={`M${x},130 L600,50`}
+                  path={`M${x},${y} L600,0`}
                 />
               </circle>
             </g>
@@ -231,9 +238,11 @@ const HowItWorksChart = () => {
                   <span className="px-2 py-1 bg-green-100 text-green-700 rounded-full text-xs font-medium">
                     {env.location}
                   </span>
-                  <span className="px-2 py-1 bg-purple-100 text-purple-700 rounded-full text-xs font-medium whitespace-nowrap">
-                    IP: {env.ip}
-                  </span>
+                  <div className="w-full mt-2">
+                    <span className="px-2 py-1 bg-purple-100 text-purple-700 rounded-full text-xs font-medium whitespace-nowrap">
+                      IP: {env.ip}
+                    </span>
+                  </div>
                 </div>
               </div>
 
@@ -241,28 +250,28 @@ const HowItWorksChart = () => {
               <div className="space-y-3">
                 <div className="flex items-center justify-between text-sm">
                   <span className="flex items-center text-gray-600">
-                    <IconWrapper icon={Mail} className="mr-2 h-4 w-4 text-blue-600" />
+                    <IconWrapper icon={Send} className="mr-2 h-4 w-4 text-blue-600" />
                     Emails Sent
                   </span>
                   <span className="font-semibold text-blue-600">{env.stats.sent}</span>
                 </div>
                 <div className="flex items-center justify-between text-sm">
                   <span className="flex items-center text-gray-600">
-                    <IconWrapper icon={Mail} className="mr-2 h-4 w-4 text-green-600" />
+                    <IconWrapper icon={Eye} className="mr-2 h-4 w-4 text-green-600" />
                     Emails Read
                   </span>
                   <span className="font-semibold text-green-600">{env.stats.read}</span>
                 </div>
                 <div className="flex items-center justify-between text-sm">
                   <span className="flex items-center text-gray-600">
-                    <IconWrapper icon={Mail} className="mr-2 h-4 w-4 text-purple-600" />
+                    <IconWrapper icon={Reply} className="mr-2 h-4 w-4 text-purple-600" />
                     Replies
                   </span>
                   <span className="font-semibold text-purple-600">{env.stats.replied}</span>
                 </div>
                 <div className="flex items-center justify-between text-sm">
                   <span className="flex items-center text-gray-600">
-                    <IconWrapper icon={Mail} className="mr-2 h-4 w-4 text-orange-600" />
+                    <IconWrapper icon={MousePointerClick} className="mr-2 h-4 w-4 text-orange-600" />
                     Links Clicked
                   </span>
                   <span className="font-semibold text-orange-600">{env.stats.clicked}</span>
@@ -271,9 +280,15 @@ const HowItWorksChart = () => {
 
               {/* Session Status */}
               <div className="mt-4 pt-4 border-t border-gray-100">
-                <div className="flex items-center justify-center gap-2">
-                  <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                  <span className="text-sm text-gray-600">Active Session</span>
+                <div className="flex flex-col items-center gap-3">
+                  <div className="flex items-center justify-center gap-2">
+                    <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                    <span className="text-sm text-gray-600">Active Session</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-sm text-gray-600">
+                    <IconWrapper icon={Clock} className="h-4 w-4 text-blue-600" />
+                    <span>Duration: {env.duration}</span>
+                  </div>
                 </div>
               </div>
             </div>
