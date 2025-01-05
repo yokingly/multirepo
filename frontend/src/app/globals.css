@@ -27,6 +27,22 @@
   @apply absolute inset-0 bg-gradient-to-b from-blue-50/20 via-transparent to-blue-50/20 dark:from-blue-900/20 dark:to-blue-900/20;
 }
 
+/* Connection lines */
+.connection-lines {
+  @apply absolute top-0 left-0 w-full h-full pointer-events-none z-0;
+}
+
+.connection-line {
+  @apply stroke-blue-200/50 dark:stroke-blue-700/30;
+  stroke-width: 1;
+}
+
+.connection-line-gradient {
+  @apply fill-none;
+  stroke: url(#connectionGradient);
+  stroke-width: 1;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;

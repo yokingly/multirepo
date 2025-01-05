@@ -137,6 +137,20 @@ const HowItWorksChart = () => {
     <div className="chart-container py-20">
       <div className="chart-connection-bg" />
       
+      {/* SVG Connection Lines */}
+      <svg className="connection-lines">
+        <defs>
+          <linearGradient id="connectionGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" style={{ stopColor: 'rgb(59, 130, 246)', stopOpacity: 0.2 }} />
+            <stop offset="50%" style={{ stopColor: 'rgb(59, 130, 246)', stopOpacity: 0.1 }} />
+            <stop offset="100%" style={{ stopColor: 'rgb(59, 130, 246)', stopOpacity: 0.2 }} />
+          </linearGradient>
+        </defs>
+        <line x1="25%" y1="200" x2="25%" y2="350" className="connection-line" />
+        <line x1="50%" y1="200" x2="50%" y2="350" className="connection-line" />
+        <line x1="75%" y1="200" x2="75%" y2="350" className="connection-line" />
+      </svg>
+      
       {/* Main Platform Card */}
       <div className="relative z-10 mx-auto mb-16 max-w-lg">
         <div className="chart-card chart-card-primary shadow-lg hover:translate-y-[-4px] transition-transform">
