@@ -1,36 +1,40 @@
 # Error Logs
 
-[2024-01-09 10:20] [LOW] [BUILD] [frontend] TypeScript configuration warning
+[LOW] [BUILD] [frontend] TypeScript configuration warning
 - Error Message: Cannot find type definition file for 'node'.
 - Occurrence Count: 1
-- Context: Initial Next.js TypeScript setup
+- Context: Initial Next.js TypeScript setup in Docker container
 - Attempted Fixes:
   1. Added @types/node to dependencies
-- Resolution: Installed @types/node as dev dependency
+  2. Updated Docker build context
+- Resolution: Installed @types/node as dev dependency and updated Dockerfile
 
-[2024-01-09 10:35] [MEDIUM] [BUILD] [backend] NestJS build error
+[MEDIUM] [BUILD] [backend] NestJS build error
 - Error Message: Cannot find module '@nestjs/core'
 - Occurrence Count: 1
-- Context: Initial NestJS application setup
+- Context: Initial NestJS application setup in Docker container
 - Attempted Fixes:
   1. Cleared node_modules and package-lock.json
   2. Ran npm install
-- Resolution: Fixed by reinstalling dependencies
+  3. Rebuilt Docker container
+- Resolution: Fixed by updating Dockerfile and reinstalling dependencies
 
-[2024-01-09 10:45] [LOW] [LINT] [frontend] ESLint configuration warning
+[LOW] [LINT] [frontend] ESLint configuration warning
 - Error Message: Unable to resolve path to module '@/components'
 - Occurrence Count: 2
-- Context: Setting up TypeScript path aliases
+- Context: Setting up TypeScript path aliases in Docker environment
 - Attempted Fixes:
   1. Updated tsconfig.json paths
   2. Updated eslint configuration
+  3. Modified Docker volume mounts
 - Resolution: Added proper path resolution in both tsconfig.json and eslint config
 
-[2024-01-09 11:15] [MEDIUM] [BUILD] [docker] Container build failure
+[MEDIUM] [BUILD] [docker] Container build failure
 - Error Message: Error response from daemon: Container not found
 - Occurrence Count: 1
-- Context: Initial Docker setup
+- Context: Initial Docker network bridge setup
 - Attempted Fixes:
   1. Verified container names in docker-compose.yml
   2. Checked network configuration
-- Resolution: Fixed container naming in docker-compose.yml 
+  3. Validated service dependencies
+- Resolution: Fixed container naming and network configuration in docker-compose.yml 

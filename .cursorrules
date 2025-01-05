@@ -1,5 +1,36 @@
 # AI Coding Guidelines for Multi-Repo Development
 
+## 0. Current Tech Stack & Infrastructure
+
+### 0.1 Technology Stack
+- Frontend: Next.js 14 with TypeScript and Tailwind CSS
+- Backend: NestJS with TypeScript
+- Database: PostgreSQL (NeonDB)
+- Authentication: Clerk.js
+- Analytics: Posthog
+- Error Tracking: Sentry
+- Payment Processing: Stripe
+
+### 0.2 Docker Infrastructure
+- Containerized development environment
+- Multi-container setup with network bridge
+- Service communication through Docker network
+- Hot-reloading enabled for development
+- Separate production configurations
+- Volume mounts for development efficiency
+
+### 0.3 Container Structure
+```
+docker/
+├── frontend/
+│   ├── Dockerfile
+│   └── .dockerignore
+├── backend/
+│   ├── Dockerfile
+│   └── .dockerignore
+└── docker-compose.yml
+```
+
 ## 1. Documentation and Context
 
 ### 1.1 File Header Documentation
