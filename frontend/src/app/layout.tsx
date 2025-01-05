@@ -1,15 +1,13 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
-import { Navigation } from '@/components/Navigation';
 import { Providers } from '@/components/Providers';
 
-const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
+const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'SendHuman - Email Automation That Feels Natural',
-  description: 'Send emails like a human using Gmail UI automation. No API keys, no OAuth2, just natural email sending.',
-  keywords: ['email automation', 'gmail automation', 'email marketing', 'sales automation', 'cold email'],
+  title: 'SendHuman - Email Like a Human',
+  description: 'Send emails like a human, not a robot',
 };
 
 export default function RootLayout({
@@ -19,14 +17,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head />
-      <body className={`${inter.variable} font-sans`}>
-        <Providers>
-          <Navigation />
-          <main>
-            {children}
-          </main>
-        </Providers>
+      <body className={inter.className}>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
