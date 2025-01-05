@@ -4,13 +4,13 @@
 
 /* Connection animations */
 @keyframes moveDown {
-  from { transform: translateY(0); }
-  to { transform: translateY(160px); }
+  from { transform: translateY(0) translateX(-50%); }
+  to { transform: translateY(120px) translateX(-50%); }
 }
 
 @keyframes moveUp {
-  from { transform: translateY(0); }
-  to { transform: translateY(-160px); }
+  from { transform: translateY(0) translateX(-50%); }
+  to { transform: translateY(-120px) translateX(-50%); }
 }
 
 .animate-connection-down {

@@ -135,64 +135,69 @@ const HowItWorksChart = () => {
 
   return (
     <div className="relative w-full py-20 overflow-hidden">
-      {/* Background Connection Patterns */}
+      {/* Connection Lines */}
       <div className="absolute inset-0 pointer-events-none">
-        {/* Left Connection */}
-        <div className="absolute left-1/4 w-[2px] h-[160px] bg-gradient-to-b from-blue-500/50 to-transparent top-[100px] transform -translate-x-1/2">
-          <div className="absolute inset-0 animate-pulse"></div>
-        </div>
-        <div className="absolute left-1/4 w-[2px] h-[160px] bg-gradient-to-t from-green-500/50 to-transparent top-[100px] transform -translate-x-1/2">
-          <div className="absolute inset-0 animate-pulse delay-150"></div>
-        </div>
+        {sessions.map((_, index) => {
+          const leftPosition = index === 0 ? '25%' : index === 1 ? '50%' : '75%';
+          return (
+            <div key={index} className="absolute" style={{ left: leftPosition }}>
+              {/* Vertical line from platform to container */}
+              <div 
+                className="absolute w-[2px] bg-gradient-to-b from-blue-500/50 via-blue-500/30 to-transparent"
+                style={{
+                  top: '80px',
+                  height: '120px',
+                  transform: 'translateX(-50%)',
+                }}
+              />
+              
+              {/* Vertical line from container to platform */}
+              <div 
+                className="absolute w-[2px] bg-gradient-to-t from-green-500/50 via-green-500/30 to-transparent"
+                style={{
+                  top: '80px',
+                  height: '120px',
+                  transform: 'translateX(-50%)',
+                }}
+              />
 
-        {/* Center Connection */}
-        <div className="absolute left-1/2 w-[2px] h-[160px] bg-gradient-to-b from-blue-500/50 to-transparent top-[100px] transform -translate-x-1/2">
-          <div className="absolute inset-0 animate-pulse"></div>
-        </div>
-        <div className="absolute left-1/2 w-[2px] h-[160px] bg-gradient-to-t from-green-500/50 to-transparent top-[100px] transform -translate-x-1/2">
-          <div className="absolute inset-0 animate-pulse delay-150"></div>
-        </div>
-
-        {/* Right Connection */}
-        <div className="absolute left-3/4 w-[2px] h-[160px] bg-gradient-to-b from-blue-500/50 to-transparent top-[100px] transform -translate-x-1/2">
-          <div className="absolute inset-0 animate-pulse"></div>
-        </div>
-        <div className="absolute left-3/4 w-[2px] h-[160px] bg-gradient-to-t from-green-500/50 to-transparent top-[100px] transform -translate-x-1/2">
-          <div className="absolute inset-0 animate-pulse delay-150"></div>
-        </div>
-
-        {/* Animated Dots */}
-        {[0, 1, 2].map((index) => (
-          <div key={index} className="absolute" style={{
-            left: `${25 + index * 25}%`,
-            transform: 'translateX(-50%)'
-          }}>
-            {/* Downward moving dot */}
-            <div className="absolute w-2 h-2 rounded-full bg-blue-500 animate-connection-down"
-              style={{
-                top: '100px',
-                animation: 'moveDown 3s infinite linear',
-                animationDelay: `${index * 0.5}s`
-              }}
-            ></div>
-            {/* Upward moving dot */}
-            <div className="absolute w-2 h-2 rounded-full bg-green-500 animate-connection-up"
-              style={{
-                top: '260px',
-                animation: 'moveUp 3s infinite linear',
-                animationDelay: `${index * 0.5}s`
-              }}
-            ></div>
-          </div>
-        ))}
+              {/* Animated dots */}
+              <div 
+                className="absolute w-2 h-2 rounded-full bg-blue-500"
+                style={{
+                  top: '80px',
+                  transform: 'translateX(-50%)',
+                  animation: 'moveDown 3s infinite linear',
+                  animationDelay: `${index * 0.5}s`
+                }}
+              />
+              <div 
+                className="absolute w-2 h-2 rounded-full bg-green-500"
+                style={{
+                  top: '200px',
+                  transform: 'translateX(-50%)',
+                  animation: 'moveUp 3s infinite linear',
+                  animationDelay: `${index * 0.5}s`
+                }}
+              />
+            </div>
+          );
+        })}
       </div>
 
       {/* Main Platform Card */}
-      <div className="relative z-10 mx-auto mb-32 max-w-lg">
+      <div className="relative z-10 mx-auto mb-24 max-w-lg">
         {/* Connection Points */}
-        <div className="absolute -bottom-4 left-1/4 w-2 h-2 bg-blue-500 rounded-full transform translate-y-1/2"></div>
-        <div className="absolute -bottom-4 left-1/2 w-2 h-2 bg-blue-500 rounded-full transform translate-y-1/2 -translate-x-1/2"></div>
-        <div className="absolute -bottom-4 left-3/4 w-2 h-2 bg-blue-500 rounded-full transform translate-y-1/2"></div>
+        {[0, 1, 2].map((index) => (
+          <div 
+            key={index}
+            className="absolute -bottom-1 w-2 h-2 bg-blue-500 rounded-full"
+            style={{
+              left: `${25 + index * 25}%`,
+              transform: 'translate(-50%, 50%)',
+            }}
+          />
+        ))}
         
         <div className="transform transition-all hover:translate-y-[-4px] bg-[#2c3e50] text-white rounded-xl p-6 shadow-lg">
           <h3 className="text-2xl font-bold text-center mb-4">Sendhuman</h3>
@@ -222,7 +227,7 @@ const HowItWorksChart = () => {
         {sessions.map((env, index) => (
           <div key={index} className="group relative">
             {/* Connection Point */}
-            <div className="absolute -top-4 left-1/2 w-2 h-2 bg-green-500 rounded-full transform -translate-y-1/2 -translate-x-1/2"></div>
+            <div className="absolute -top-1 left-1/2 w-2 h-2 bg-green-500 rounded-full transform -translate-x-1/2 -translate-y-1/2" />
             
             <div className="transform transition-all group-hover:translate-y-[-4px] bg-gradient-to-br from-white to-blue-50 rounded-xl p-6 shadow-md border border-blue-100">
               <div className="text-center mb-6">
