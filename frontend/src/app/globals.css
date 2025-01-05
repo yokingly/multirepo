@@ -13,6 +13,20 @@
   to { transform: translateY(-140px) translateX(-50%); }
 }
 
+@keyframes moveLShape {
+  0% { transform: translate(-50%, 0); }
+  40% { transform: translate(-50%, 70px); }
+  60% { transform: translate(50px, 70px); }
+  100% { transform: translate(50px, 70px); }
+}
+
+@keyframes moveLShapeReverse {
+  0% { transform: translate(50px, 70px); }
+  40% { transform: translate(-50%, 70px); }
+  60% { transform: translate(-50%, 0); }
+  100% { transform: translate(-50%, 0); }
+}
+
 .animate-connection-down {
   animation: moveDown 3s infinite linear;
 }
