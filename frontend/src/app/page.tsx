@@ -138,20 +138,53 @@ const HowItWorksChart = () => {
       {/* Background Connection Patterns */}
       <div className="absolute inset-0 pointer-events-none">
         {/* Left Connection */}
-        <div className="absolute left-1/4 top-1/2 w-32 h-32 transform -translate-x-1/2 -translate-y-1/2">
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-transparent animate-pulse"></div>
-          <div className="absolute inset-0 bg-gradient-to-tl from-green-500/10 to-transparent animate-pulse delay-150"></div>
+        <div className="absolute left-1/4 w-[2px] h-[120px] bg-gradient-to-b from-blue-500/50 to-transparent top-[60px] transform -translate-x-1/2">
+          <div className="absolute inset-0 animate-pulse"></div>
         </div>
+        <div className="absolute left-1/4 w-[2px] h-[120px] bg-gradient-to-t from-green-500/50 to-transparent top-[60px] transform -translate-x-1/2">
+          <div className="absolute inset-0 animate-pulse delay-150"></div>
+        </div>
+
         {/* Center Connection */}
-        <div className="absolute left-1/2 top-1/2 w-32 h-32 transform -translate-x-1/2 -translate-y-1/2">
-          <div className="absolute inset-0 bg-gradient-to-b from-blue-500/10 to-transparent animate-pulse"></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-green-500/10 to-transparent animate-pulse delay-150"></div>
+        <div className="absolute left-1/2 w-[2px] h-[120px] bg-gradient-to-b from-blue-500/50 to-transparent top-[60px] transform -translate-x-1/2">
+          <div className="absolute inset-0 animate-pulse"></div>
         </div>
+        <div className="absolute left-1/2 w-[2px] h-[120px] bg-gradient-to-t from-green-500/50 to-transparent top-[60px] transform -translate-x-1/2">
+          <div className="absolute inset-0 animate-pulse delay-150"></div>
+        </div>
+
         {/* Right Connection */}
-        <div className="absolute left-3/4 top-1/2 w-32 h-32 transform -translate-x-1/2 -translate-y-1/2">
-          <div className="absolute inset-0 bg-gradient-to-bl from-blue-500/10 to-transparent animate-pulse"></div>
-          <div className="absolute inset-0 bg-gradient-to-tr from-green-500/10 to-transparent animate-pulse delay-150"></div>
+        <div className="absolute left-3/4 w-[2px] h-[120px] bg-gradient-to-b from-blue-500/50 to-transparent top-[60px] transform -translate-x-1/2">
+          <div className="absolute inset-0 animate-pulse"></div>
         </div>
+        <div className="absolute left-3/4 w-[2px] h-[120px] bg-gradient-to-t from-green-500/50 to-transparent top-[60px] transform -translate-x-1/2">
+          <div className="absolute inset-0 animate-pulse delay-150"></div>
+        </div>
+
+        {/* Animated Dots */}
+        {[0, 1, 2].map((index) => (
+          <div key={index} className="absolute" style={{
+            left: `${25 + index * 25}%`,
+            transform: 'translateX(-50%)'
+          }}>
+            {/* Downward moving dot */}
+            <div className="absolute w-2 h-2 rounded-full bg-blue-500 animate-connection-down"
+              style={{
+                top: '60px',
+                animation: 'moveDown 3s infinite linear',
+                animationDelay: `${index * 0.5}s`
+              }}
+            ></div>
+            {/* Upward moving dot */}
+            <div className="absolute w-2 h-2 rounded-full bg-green-500 animate-connection-up"
+              style={{
+                top: '180px',
+                animation: 'moveUp 3s infinite linear',
+                animationDelay: `${index * 0.5}s`
+              }}
+            ></div>
+          </div>
+        ))}
       </div>
 
       {/* Main Platform Card */}

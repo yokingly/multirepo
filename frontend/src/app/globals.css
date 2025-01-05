@@ -2,6 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Connection animations */
+@keyframes moveDown {
+  from { transform: translateY(0); }
+  to { transform: translateY(120px); }
+}
+
+@keyframes moveUp {
+  from { transform: translateY(0); }
+  to { transform: translateY(-120px); }
+}
+
+.animate-connection-down {
+  animation: moveDown 3s infinite linear;
+}
+
+.animate-connection-up {
+  animation: moveUp 3s infinite linear;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
