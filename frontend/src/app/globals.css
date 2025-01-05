@@ -5,12 +5,12 @@
 /* Connection animations */
 @keyframes moveDown {
   from { transform: translateY(0); }
-  to { transform: translateY(120px); }
+  to { transform: translateY(160px); }
 }
 
 @keyframes moveUp {
   from { transform: translateY(0); }
-  to { transform: translateY(-120px); }
+  to { transform: translateY(-160px); }
 }
 
 .animate-connection-down {

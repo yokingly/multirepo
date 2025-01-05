@@ -138,26 +138,26 @@ const HowItWorksChart = () => {
       {/* Background Connection Patterns */}
       <div className="absolute inset-0 pointer-events-none">
         {/* Left Connection */}
-        <div className="absolute left-1/4 w-[2px] h-[120px] bg-gradient-to-b from-blue-500/50 to-transparent top-[60px] transform -translate-x-1/2">
+        <div className="absolute left-1/4 w-[2px] h-[160px] bg-gradient-to-b from-blue-500/50 to-transparent top-[100px] transform -translate-x-1/2">
           <div className="absolute inset-0 animate-pulse"></div>
         </div>
-        <div className="absolute left-1/4 w-[2px] h-[120px] bg-gradient-to-t from-green-500/50 to-transparent top-[60px] transform -translate-x-1/2">
+        <div className="absolute left-1/4 w-[2px] h-[160px] bg-gradient-to-t from-green-500/50 to-transparent top-[100px] transform -translate-x-1/2">
           <div className="absolute inset-0 animate-pulse delay-150"></div>
         </div>
 
         {/* Center Connection */}
-        <div className="absolute left-1/2 w-[2px] h-[120px] bg-gradient-to-b from-blue-500/50 to-transparent top-[60px] transform -translate-x-1/2">
+        <div className="absolute left-1/2 w-[2px] h-[160px] bg-gradient-to-b from-blue-500/50 to-transparent top-[100px] transform -translate-x-1/2">
           <div className="absolute inset-0 animate-pulse"></div>
         </div>
-        <div className="absolute left-1/2 w-[2px] h-[120px] bg-gradient-to-t from-green-500/50 to-transparent top-[60px] transform -translate-x-1/2">
+        <div className="absolute left-1/2 w-[2px] h-[160px] bg-gradient-to-t from-green-500/50 to-transparent top-[100px] transform -translate-x-1/2">
           <div className="absolute inset-0 animate-pulse delay-150"></div>
         </div>
 
         {/* Right Connection */}
-        <div className="absolute left-3/4 w-[2px] h-[120px] bg-gradient-to-b from-blue-500/50 to-transparent top-[60px] transform -translate-x-1/2">
+        <div className="absolute left-3/4 w-[2px] h-[160px] bg-gradient-to-b from-blue-500/50 to-transparent top-[100px] transform -translate-x-1/2">
           <div className="absolute inset-0 animate-pulse"></div>
         </div>
-        <div className="absolute left-3/4 w-[2px] h-[120px] bg-gradient-to-t from-green-500/50 to-transparent top-[60px] transform -translate-x-1/2">
+        <div className="absolute left-3/4 w-[2px] h-[160px] bg-gradient-to-t from-green-500/50 to-transparent top-[100px] transform -translate-x-1/2">
           <div className="absolute inset-0 animate-pulse delay-150"></div>
         </div>
 
@@ -170,7 +170,7 @@ const HowItWorksChart = () => {
             {/* Downward moving dot */}
             <div className="absolute w-2 h-2 rounded-full bg-blue-500 animate-connection-down"
               style={{
-                top: '60px',
+                top: '100px',
                 animation: 'moveDown 3s infinite linear',
                 animationDelay: `${index * 0.5}s`
               }}
@@ -178,7 +178,7 @@ const HowItWorksChart = () => {
             {/* Upward moving dot */}
             <div className="absolute w-2 h-2 rounded-full bg-green-500 animate-connection-up"
               style={{
-                top: '180px',
+                top: '260px',
                 animation: 'moveUp 3s infinite linear',
                 animationDelay: `${index * 0.5}s`
               }}
@@ -188,11 +188,11 @@ const HowItWorksChart = () => {
       </div>
 
       {/* Main Platform Card */}
-      <div className="relative z-10 mx-auto mb-16 max-w-lg">
+      <div className="relative z-10 mx-auto mb-32 max-w-lg">
         {/* Connection Points */}
-        <div className="absolute bottom-0 left-1/4 w-2 h-2 bg-blue-500 rounded-full transform translate-y-1/2"></div>
-        <div className="absolute bottom-0 left-1/2 w-2 h-2 bg-blue-500 rounded-full transform translate-y-1/2 -translate-x-1/2"></div>
-        <div className="absolute bottom-0 left-3/4 w-2 h-2 bg-blue-500 rounded-full transform translate-y-1/2"></div>
+        <div className="absolute -bottom-4 left-1/4 w-2 h-2 bg-blue-500 rounded-full transform translate-y-1/2"></div>
+        <div className="absolute -bottom-4 left-1/2 w-2 h-2 bg-blue-500 rounded-full transform translate-y-1/2 -translate-x-1/2"></div>
+        <div className="absolute -bottom-4 left-3/4 w-2 h-2 bg-blue-500 rounded-full transform translate-y-1/2"></div>
         
         <div className="transform transition-all hover:translate-y-[-4px] bg-[#2c3e50] text-white rounded-xl p-6 shadow-lg">
           <h3 className="text-2xl font-bold text-center mb-4">Sendhuman</h3>
@@ -222,7 +222,7 @@ const HowItWorksChart = () => {
         {sessions.map((env, index) => (
           <div key={index} className="group relative">
             {/* Connection Point */}
-            <div className="absolute top-0 left-1/2 w-2 h-2 bg-green-500 rounded-full transform -translate-y-1/2 -translate-x-1/2"></div>
+            <div className="absolute -top-4 left-1/2 w-2 h-2 bg-green-500 rounded-full transform -translate-y-1/2 -translate-x-1/2"></div>
             
             <div className="transform transition-all group-hover:translate-y-[-4px] bg-gradient-to-br from-white to-blue-50 rounded-xl p-6 shadow-md border border-blue-100">
               <div className="text-center mb-6">
