@@ -14,11 +14,11 @@ export default function Home() {
           <div className="flex flex-col items-center space-y-8 text-center">
             <div className="space-y-4">
               <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
-                Send Emails Like a{' '}
+                Send Emails Like a{" "}
                 <span className="gradient-text">Human Being</span>
               </h1>
               <p className="mx-auto max-w-[700px] text-lg text-muted-foreground md:text-xl">
-                Automate your email outreach with human-like precision. No APIs, no OAuth2 - just natural email sending through Gmail's UI.
+                Automate your email outreach with human-like precision. No APIs, no OAuth2 - just natural email sending through Gmail&apos;s UI.
               </p>
             </div>
             <div className="flex flex-wrap justify-center gap-4">
@@ -40,7 +40,7 @@ export default function Home() {
             <div className="space-y-4">
               <h3 className="text-2xl font-bold">Natural Email Sending</h3>
               <p className="text-muted-foreground">
-                Send emails through Gmail's UI with human-like patterns and timing variations.
+                Send emails through Gmail&apos;s UI with human-like patterns and timing variations.
               </p>
             </div>
             <div className="space-y-4">
