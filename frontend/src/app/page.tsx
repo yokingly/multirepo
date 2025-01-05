@@ -78,63 +78,114 @@ const HowItWorksChart = () => {
       {/* Main Platform Card */}
       <div className="relative z-10 mx-auto mb-16 max-w-lg">
         <div className="transform transition-all hover:translate-y-[-4px] bg-[#2c3e50] text-white rounded-xl p-6 shadow-lg">
-          <h3 className="text-xl font-bold text-center mb-2">SendHuman Platform</h3>
-          <p className="text-sm text-center text-gray-200">Smart Email Automation That Stays Undetected</p>
+          <h3 className="text-2xl font-bold text-center">SendHuman</h3>
         </div>
         
         {/* Animated Connection Lines */}
-        <div className="absolute left-1/2 transform -translate-x-1/2 w-0.5 h-12 bg-gradient-to-b from-[#2c3e50] to-[#3498db] animate-pulse" />
+        <div className="absolute left-1/2 -translate-x-1/2 w-[600px] h-16 flex justify-between items-center px-8">
+          <div className="w-1/2 h-0.5 bg-gradient-to-r from-[#2c3e50] to-[#3498db] animate-pulse"></div>
+          <div className="w-1/2 h-0.5 bg-gradient-to-r from-[#2c3e50] to-[#3498db] animate-pulse"></div>
+        </div>
       </div>
 
       {/* Container Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto px-4">
-        {[1, 2, 3].map((num) => (
-          <div key={num} className="group relative">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto px-4">
+        {[
+          {
+            name: "Gmail Session",
+            logo: `<svg className="w-8 h-8" viewBox="0 0 24 24" fill="none">
+              <path d="M22.5 4.5v15c0 .85-.65 1.5-1.5 1.5H3c-.85 0-1.5-.65-1.5-1.5v-15c0-.85.65-1.5 1.5-1.5h18c.85 0 1.5.65 1.5 1.5z" fill="#E6E6E6"/>
+              <path d="M22.5 4.5L12 12L1.5 4.5" stroke="#DB4437" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M12 12L1.5 4.5h19.5L12 12z" fill="#DB4437"/>
+            </svg>`,
+            browser: "Chrome",
+            location: "New York, USA",
+            ip: "156.33.x.x",
+            stats: {
+              sent: 23,
+              read: 12,
+              replied: 7,
+              clicked: 5
+            }
+          },
+          {
+            name: "Outlook Session",
+            logo: `<svg className="w-8 h-8" viewBox="0 0 24 24" fill="none">
+              <path d="M21 4H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2z" fill="#0078D4"/>
+              <path d="M3 4h18v6H3V4z" fill="#0078D4"/>
+              <path d="M3 10h18v10H3V10z" fill="#00BCF2"/>
+            </svg>`,
+            browser: "Edge",
+            location: "London, UK",
+            ip: "82.14.x.x",
+            stats: {
+              sent: 19,
+              read: 9,
+              replied: 4,
+              clicked: 3
+            }
+          }
+        ].map((env, index) => (
+          <div key={index} className="group relative">
             <div className="transform transition-all group-hover:translate-y-[-4px] bg-gradient-to-br from-white to-blue-50 rounded-xl p-6 shadow-md border border-blue-100">
-              <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-6 w-0.5 h-6 bg-[#3498db] opacity-0 md:opacity-100" />
-              
-              <div className="text-center mb-4">
-                <div className="inline-block p-3 bg-blue-100 rounded-full mb-3">
-                  <svg className="w-6 h-6 text-[#3498db]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                  </svg>
-                </div>
-                <h4 className="text-lg font-semibold text-[#2c3e50]">
-                  Isolated Sending Environment #{num}
+              <div className="text-center mb-6">
+                {/* Platform Logo */}
+                <div className="inline-block mb-3" dangerouslySetInnerHTML={{ __html: env.logo }} />
+                <h4 className="text-lg font-semibold text-[#2c3e50] mb-2">
+                  {env.name}
                 </h4>
+                
+                {/* Technical Details Pills */}
+                <div className="flex flex-wrap gap-2 justify-center mb-4">
+                  <span className="px-2 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-medium">
+                    {env.browser}
+                  </span>
+                  <span className="px-2 py-1 bg-green-100 text-green-700 rounded-full text-xs font-medium">
+                    {env.location}
+                  </span>
+                  <span className="px-2 py-1 bg-purple-100 text-purple-700 rounded-full text-xs font-medium">
+                    IP: {env.ip}
+                  </span>
+                </div>
               </div>
 
-              <ul className="space-y-2 text-sm text-gray-600">
-                <li className="flex items-center">
-                  <svg className="w-4 h-4 mr-2 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  Private Browser Session
-                </li>
-                <li className="flex items-center">
-                  <svg className="w-4 h-4 mr-2 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  Unique Identity & Location
-                </li>
-                <li className="flex items-center">
-                  <svg className="w-4 h-4 mr-2 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  Natural Email Sending
-                </li>
-                <li className="flex items-center">
-                  <svg className="w-4 h-4 mr-2 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  Reports Results Back
-                </li>
-              </ul>
+              {/* Activity Stats with Icons */}
+              <div className="space-y-3">
+                <div className="flex items-center justify-between text-sm">
+                  <span className="flex items-center text-gray-600">
+                    <IconWrapper icon={Mail} className="mr-2 h-4 w-4 text-blue-600" />
+                    Emails Sent
+                  </span>
+                  <span className="font-semibold text-blue-600">{env.stats.sent}</span>
+                </div>
+                <div className="flex items-center justify-between text-sm">
+                  <span className="flex items-center text-gray-600">
+                    <IconWrapper icon={Mail} className="mr-2 h-4 w-4 text-green-600" />
+                    Emails Read
+                  </span>
+                  <span className="font-semibold text-green-600">{env.stats.read}</span>
+                </div>
+                <div className="flex items-center justify-between text-sm">
+                  <span className="flex items-center text-gray-600">
+                    <IconWrapper icon={Mail} className="mr-2 h-4 w-4 text-purple-600" />
+                    Replies
+                  </span>
+                  <span className="font-semibold text-purple-600">{env.stats.replied}</span>
+                </div>
+                <div className="flex items-center justify-between text-sm">
+                  <span className="flex items-center text-gray-600">
+                    <IconWrapper icon={Mail} className="mr-2 h-4 w-4 text-orange-600" />
+                    Links Clicked
+                  </span>
+                  <span className="font-semibold text-orange-600">{env.stats.clicked}</span>
+                </div>
+              </div>
 
-              {/* Hover Tooltip */}
-              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                <div className="bg-black bg-opacity-75 text-white text-sm p-2 rounded">
-                  Click to learn more about this environment
+              {/* Session Status */}
+              <div className="mt-4 pt-4 border-t border-gray-100">
+                <div className="flex items-center justify-center gap-2">
+                  <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                  <span className="text-sm text-gray-600">Active Session</span>
                 </div>
               </div>
             </div>
@@ -145,7 +196,7 @@ const HowItWorksChart = () => {
       {/* Description */}
       <div className="mt-12 text-center max-w-2xl mx-auto px-4">
         <p className="text-gray-600">
-          SendHuman runs multiple private email environments that work independently to send your emails naturally, just like a human would do it manually.
+          Each email client session operates independently with randomized behavior patterns, making your outreach truly indistinguishable from manual sending.
         </p>
       </div>
     </div>
