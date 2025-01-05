@@ -19,6 +19,7 @@ import {
 } from 'lucide-react';
 import type { LucideProps } from 'lucide-react';
 import { FC, useState } from 'react';
+import { TypewriterEffect } from '@/components/TypewriterEffect';
 
 // TODO: Fix type definitions for Lucide icons
 // @ts-ignore
@@ -357,7 +358,10 @@ export default function Home() {
             <div className="space-y-4">
               <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
                 Send cold emails like a{" "}
-                <span className="text-blue-600">human being</span>
+                <TypewriterEffect 
+                  words={["human being", "real", "real person"]} 
+                  className="text-blue-600"
+                />
               </h1>
               <p className="mx-auto max-w-[800px] text-lg text-muted-foreground md:text-xl">
                 Achieve unmatched deliverability by replicating real human behavior in email clients.
