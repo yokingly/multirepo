@@ -201,7 +201,7 @@ const HowItWorksChart = () => {
         {/* Platform Card */}
         <div className="max-w-lg mx-auto mb-16">
           <div className="chart-card chart-card-secondary shadow-lg hover:translate-y-[-4px] transition-transform">
-            <h3 className="text-2xl font-bold text-center mb-6">Sendhuman Platform</h3>
+            <h3 className="text-2xl font-bold text-center mb-6">Sendhuman</h3>
             <div className="grid grid-cols-2 gap-6">
               <div className="text-center p-4 rounded-lg bg-gradient-to-br from-blue-500/10 to-blue-600/5 border border-blue-100 dark:border-blue-900">
                 <div className="text-sm text-[#2c3e50] dark:text-gray-300 mb-1">Emails Sent</div>
@@ -358,8 +358,6 @@ export default function Home() {
               <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
                 Send cold emails like a{" "}
                 <span className="text-blue-600">human being</span>
-                {" "}
-                <span>would</span>
               </h1>
               <p className="mx-auto max-w-[800px] text-lg text-muted-foreground md:text-xl">
                 Achieve unmatched deliverability by replicating real human behavior in email clients.
