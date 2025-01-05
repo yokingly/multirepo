@@ -76,6 +76,40 @@ const WaitlistForm = ({ className = '' }: { className?: string }) => {
   );
 };
 
+const ConnectionLine = ({ position }: { position: string }) => {
+  return (
+    <div className="absolute" style={{ left: position }}>
+      {/* Vertical connection line */}
+      <div 
+        className="connection-line"
+        style={{
+          height: '120px',
+          top: '250px',
+          transform: 'translateX(-50%)',
+        }}
+      />
+      
+      {/* Animated dots */}
+      <div 
+        className="connection-dot connection-dot-down"
+        style={{
+          left: '50%',
+          top: '250px',
+          transform: 'translate(-50%, -50%)',
+        }}
+      />
+      <div 
+        className="connection-dot connection-dot-up"
+        style={{
+          left: '50%',
+          top: '370px',
+          transform: 'translate(-50%, -50%)',
+        }}
+      />
+    </div>
+  );
+};
+
 const HowItWorksChart = () => {
   const sessions = [
     {
@@ -137,99 +171,9 @@ const HowItWorksChart = () => {
     <div className="relative w-full py-20 overflow-hidden">
       {/* Connection Lines */}
       <div className="absolute inset-0 pointer-events-none">
-        {sessions.map((_, index) => {
-          const isCenter = index === 1;
-          const leftPosition = index === 0 ? '25%' : index === 1 ? '50%' : '75%';
-          
-          return (
-            <div key={index} className="absolute" style={{ left: leftPosition }}>
-              {isCenter ? (
-                // Center container - straight vertical connection
-                <>
-                  <div 
-                    className="absolute w-[2px] bg-gradient-to-b from-blue-500/50 via-blue-500/30 to-transparent"
-                    style={{
-                      top: '250px',
-                      height: '140px',
-                      transform: 'translateX(-50%)',
-                    }}
-                  />
-                  <div 
-                    className="absolute w-[2px] bg-gradient-to-t from-green-500/50 via-green-500/30 to-transparent"
-                    style={{
-                      top: '250px',
-                      height: '140px',
-                      transform: 'translateX(-50%)',
-                    }}
-                  />
-                </>
-              ) : (
-                // Side containers - L-shaped connection
-                <>
-                  {/* Vertical part */}
-                  <div 
-                    className="absolute w-[2px] bg-gradient-to-b from-blue-500/50 via-blue-500/30 to-transparent"
-                    style={{
-                      top: '250px',
-                      height: '70px',
-                      transform: 'translateX(-50%)',
-                    }}
-                  />
-                  {/* Horizontal part */}
-                  <div 
-                    className={`absolute h-[2px] bg-gradient-to-${index === 0 ? 'r' : 'l'} from-blue-500/50 via-blue-500/30 to-transparent`}
-                    style={{
-                      top: '320px',
-                      width: '100px',
-                      left: index === 0 ? '-50px' : '-50px',
-                      transform: index === 0 ? 'translateX(-100%)' : 'translateX(0)',
-                    }}
-                  />
-                  
-                  {/* Return path - vertical */}
-                  <div 
-                    className="absolute w-[2px] bg-gradient-to-t from-green-500/50 via-green-500/30 to-transparent"
-                    style={{
-                      top: '250px',
-                      height: '70px',
-                      transform: 'translateX(-50%)',
-                    }}
-                  />
-                  {/* Return path - horizontal */}
-                  <div 
-                    className={`absolute h-[2px] bg-gradient-to-${index === 0 ? 'l' : 'r'} from-green-500/50 via-green-500/30 to-transparent`}
-                    style={{
-                      top: '320px',
-                      width: '100px',
-                      left: index === 0 ? '-50px' : '-50px',
-                      transform: index === 0 ? 'translateX(-100%)' : 'translateX(0)',
-                    }}
-                  />
-                </>
-              )}
-
-              {/* Animated dots */}
-              <div 
-                className="absolute w-2 h-2 rounded-full bg-blue-500"
-                style={{
-                  top: '250px',
-                  transform: 'translateX(-50%)',
-                  animation: isCenter ? 'moveDown 3s infinite linear' : 'moveLShape 3s infinite linear',
-                  animationDelay: `${index * 0.5}s`
-                }}
-              />
-              <div 
-                className="absolute w-2 h-2 rounded-full bg-green-500"
-                style={{
-                  top: isCenter ? '390px' : '320px',
-                  transform: 'translateX(-50%)',
-                  animation: isCenter ? 'moveUp 3s infinite linear' : 'moveLShapeReverse 3s infinite linear',
-                  animationDelay: `${index * 0.5}s`
-                }}
-              />
-            </div>
-          );
-        })}
+        <ConnectionLine position="25%" />
+        <ConnectionLine position="50%" />
+        <ConnectionLine position="75%" />
       </div>
 
       {/* Main Platform Card */}

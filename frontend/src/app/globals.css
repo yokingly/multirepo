@@ -3,36 +3,36 @@
 @tailwind utilities;
 
 /* Connection animations */
-@keyframes moveDown {
-  from { transform: translateY(0) translateX(-50%); }
-  to { transform: translateY(140px) translateX(-50%); }
-}
-
 @keyframes moveUp {
-  from { transform: translateY(0) translateX(-50%); }
-  to { transform: translateY(-140px) translateX(-50%); }
+  0% { transform: translateY(0); opacity: 0; }
+  20% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { transform: translateY(-120px); opacity: 0; }
 }
 
-@keyframes moveLShape {
-  0% { transform: translate(-50%, 0); }
-  40% { transform: translate(-50%, 70px); }
-  60% { transform: translate(50px, 70px); }
-  100% { transform: translate(50px, 70px); }
+@keyframes moveDown {
+  0% { transform: translateY(0); opacity: 0; }
+  20% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { transform: translateY(120px); opacity: 0; }
 }
 
-@keyframes moveLShapeReverse {
-  0% { transform: translate(50px, 70px); }
-  40% { transform: translate(-50%, 70px); }
-  60% { transform: translate(-50%, 0); }
-  100% { transform: translate(-50%, 0); }
+.connection-line {
+  @apply absolute w-[1px] bg-gradient-to-b from-blue-500/30 via-blue-500/20 to-transparent;
 }
 
-.animate-connection-down {
-  animation: moveDown 3s infinite linear;
+.connection-dot {
+  @apply absolute w-1.5 h-1.5 rounded-full;
 }
 
-.animate-connection-up {
-  animation: moveUp 3s infinite linear;
+.connection-dot-down {
+  @apply bg-blue-500;
+  animation: moveDown 3s infinite;
+}
+
+.connection-dot-up {
+  @apply bg-green-500;
+  animation: moveUp 3s infinite;
 }
 
 @layer base {
