@@ -1,0 +1,336 @@
+# Email Automation System - Product Requirements Document
+
+## 1. Product Overview
+
+### 1.1 Problem Statement
+Current email automation solutions rely heavily on OAuth2 and API integrations, which can lead to lower deliverability rates and potential flagging by email providers. There's a need for a more natural approach that mimics human behavior when sending emails.
+
+### 1.2 Product Vision
+Create an email automation system that interfaces directly with Gmail's UI using browser automation, enabling users to manage multiple mailboxes across different domains with sophisticated proxy rotation and session management. The system will provide a natural and reliable way to send automated emails while maintaining high deliverability rates through human-like behavior patterns and IP rotation.
+
+### 1.3 Target Users
+- Small to medium-sized businesses
+- Sales teams
+- Marketing professionals
+- Individual professionals managing multiple email campaigns
+
+## 2. Functional Requirements
+
+### 2.1 Authentication & User Management
+- Secure user registration and login system
+- Multi-factor authentication support
+- Multi-mailbox management across different domains
+- Advanced session management for multiple Gmail accounts
+- Sophisticated proxy rotation system with Webshare integration
+- User role management (Admin, Standard User)
+- Domain-based inbox rotation configuration
+- IP allocation and rotation strategies per mailbox
+- Session persistence across multiple browser instances
+
+### 2.2 Email Automation Features
+- Email composition interface matching Gmail's UI
+- Campaign creation and management
+- Intelligent mailbox rotation system:
+  - Domain-based mailbox selection
+  - Automatic failover between mailboxes
+  - Smart distribution of sending load
+- Session-based sending automation:
+  - Active sessions lasting 1-2 hours per mailbox
+  - Real-time mailbox health monitoring
+  - Automatic session termination and rotation
+- Daily email quota management (10-15 emails/day/account)
+- Natural timing variations between emails
+- Human behavior pattern simulation:
+  - Random delays between actions
+  - Natural mouse movements
+  - Varied typing speeds
+  - Random pauses during composition
+  - Realistic session duration patterns
+  - Natural inbox navigation patterns
+
+### 2.3 Campaign Management
+- Campaign creation and scheduling
+- Template management
+- Recipient list management
+- Campaign performance tracking
+- A/B testing capabilities
+
+### 2.4 Analytics & Reporting
+- Email delivery rates
+- Open rates and click-through rates
+- Campaign performance metrics
+- User activity logs
+- System performance metrics
+
+### 2.5 Administrative Features
+- User management dashboard
+- System configuration interface
+- Proxy management interface
+- Error monitoring and alerting
+- Usage statistics and reporting
+
+## 3. Technical Requirements
+
+### 3.1 Architecture
+- Multi-repository setup:
+  - Frontend repository (Next.js)
+  - Backend repository (Nest.js)
+  - Shared libraries repository (common types and utilities)
+- Microservices architecture for scalability
+- Container-based deployment using Docker
+- Separate development, staging, and production environments
+
+### 3.2 Frontend Requirements
+- Next.js framework implementation
+- Responsive design using Tailwind CSS
+- Radix UI component integration
+- Real-time updates using WebSocket
+- Clerk.js integration for authentication
+- Stripe Elements integration for payment processing
+- Progressive Web App capabilities
+- Accessibility compliance (WCAG 2.1)
+
+### 3.3 Backend Requirements
+- Nest.js framework implementation
+- RESTful API design
+- WebSocket support for real-time features
+- Clerk.js webhook handling
+- Stripe webhook processing
+- Rate limiting and request throttling
+- Background job processing
+- Caching strategy
+
+### 3.4 Database Requirements
+- NeonDB PostgreSQL implementation
+- Prisma ORM integration
+- Database migration strategy
+- Backup and recovery procedures
+- Data archiving strategy
+- Multi-tenant data isolation
+
+### 3.5 Browser Automation & Session Management
+- Playwright/Puppeteer integration
+- Advanced proxy management system:
+  - IP rotation per mailbox
+  - Geolocation-based proxy selection
+  - Proxy health monitoring
+  - Automatic proxy failover
+- Sophisticated session management:
+  - Multi-mailbox session orchestration
+  - Session persistence across browser instances
+  - Automated session rotation every 1-2 hours
+  - Session state preservation
+- Browser fingerprinting:
+  - Unique fingerprints per mailbox
+  - Consistent fingerprint maintenance
+  - Device simulation parameters
+- Error recovery mechanisms:
+  - Automatic session recovery
+  - Smart retry logic
+  - Failover to backup mailboxes
+- Performance optimization:
+  - Resource usage monitoring
+  - Memory management
+  - Concurrent session limitations
+
+### 3.6 Authentication & Billing
+- Clerk.js implementation:
+  - User authentication
+  - Organization management
+  - Role-based access control
+  - SSO integration
+- Stripe integration:
+  - Subscription management
+  - Usage-based billing
+  - Invoice generation
+  - Payment processing
+  - Webhook handling
+
+### 3.6 Security Requirements
+- End-to-end encryption for sensitive data
+- HTTPS enforcement
+- SQL injection prevention
+- XSS protection
+- CSRF protection
+- Rate limiting
+- Input validation
+- Security headers implementation
+
+### 3.7 Testing Requirements
+- Jest implementation for unit testing
+- Integration testing
+- End-to-end testing
+- Performance testing
+- Security testing
+- Minimum 80% code coverage
+
+### 3.8 Monitoring & Analytics
+- Posthog integration for:
+  - User behavior analytics
+  - Feature usage tracking
+  - Funnel analysis
+  - Session recording
+  - A/B testing
+- Sentry integration for error tracking
+- Custom event tracking
+- Performance monitoring
+- Automated alerting system
+
+### 3.9 CI/CD Requirements
+- GitHub Actions workflows
+- Automated testing
+- Automated deployment to Vercel
+- Environment-specific configurations
+- Rollback capabilities
+
+## 4. Non-Functional Requirements
+
+### 4.1 Performance
+- Page load time < 3 seconds
+- API response time < 200ms
+- Support for concurrent users
+- Email processing capacity scaling
+- Browser automation resource optimization
+
+### 4.2 Scalability
+- Horizontal scaling capability
+- Load balancing
+- Caching strategy
+- Database performance optimization
+- Resource allocation management
+
+### 4.3 Reliability
+- 99.9% system uptime
+- Automated backup systems
+- Disaster recovery plan
+- Failover mechanisms
+- Error handling and recovery
+
+### 4.4 Security
+- SOC 2 compliance
+- GDPR compliance
+- Data encryption at rest and in transit
+- Regular security audits
+- Penetration testing
+
+## 5. Implementation Order & Timeline
+
+### 5.1 Initial Setup (Week 1)
+1. Repository Structure & Docker Configuration
+   - Initialize monorepo structure
+   - Configure Docker network bridge
+   - Set up development environment
+   - Configure ESLint, Prettier, Husky
+   - Initialize TypeScript configurations
+   - Set up CI/CD pipeline basics
+
+2. Core Infrastructure
+   - Configure NeonDB connection
+   - Set up Prisma with initial schema
+   - Implement Zod schemas
+   - Configure basic Next.js and Nest.js applications
+   - Set up basic API structure
+
+3. Authentication & User Management
+   - Implement Clerk.js integration
+   - Set up organization management
+   - Configure user roles and permissions
+   - Implement basic auth middleware
+
+### 5.2 Core Features (Weeks 2-3)
+1. Frontend Foundation
+   - Implement dashboard layout
+   - Create mailbox management interface
+   - Build campaign creation forms
+   - Set up Posthog analytics tracking
+
+2. Backend Services
+   - Develop campaign CRUD operations
+   - Implement mailbox management logic
+   - Set up email queue system
+   - Configure Stripe subscription basics
+
+3. Automation Setup
+   - Basic Playwright implementation
+   - Initial Gmail login automation
+   - Session persistence logic
+   - Basic proxy integration
+
+### 5.3 Advanced Features (Weeks 4-6)
+1. Enhanced Automation
+   - Multi-mailbox rotation system
+   - Advanced proxy management
+   - Human behavior simulation
+   - Error recovery implementation
+
+2. Campaign Management
+   - Advanced scheduling system
+   - Template management
+   - Variable handling
+   - Analytics integration
+
+3. Monitoring & Testing
+   - Implement Posthog event tracking
+   - Set up Cypress E2E tests
+   - Configure MSW for API mocking
+   - Implement comprehensive unit tests
+
+### 5.4 Final Polish (Weeks 7-8)
+1. Performance Optimization
+   - Query optimization
+   - Caching implementation
+   - Load testing and adjustments
+
+2. Security & Compliance
+   - Security audit
+   - Rate limiting implementation
+   - Access control refinement
+
+3. Documentation & Launch Prep
+   - API documentation
+   - User documentation
+   - Deployment procedures
+
+## 6. Success Metrics
+
+### 6.1 Technical Metrics
+- System uptime > 99.9%
+- API response time < 200ms
+- Test coverage > 80%
+- Zero critical security vulnerabilities
+
+### 6.2 Business Metrics
+- Email deliverability rate > 98%
+- User retention rate > 85%
+- Customer satisfaction score > 4.5/5
+- Monthly recurring revenue growth > 10%
+
+## 7. Constraints & Assumptions
+
+### 7.1 Constraints
+- Gmail UI changes may require automation updates
+- Email sending limits per account
+- Proxy availability and reliability
+- Browser automation resource requirements
+
+### 7.2 Assumptions
+- Users have valid Gmail accounts
+- Stable internet connection available
+- Users understand email marketing best practices
+- Proxy services maintain reliable uptime
+
+## 8. Future Considerations
+
+### 8.1 Potential Enhancements
+- Support for additional email providers
+- AI-powered email composition
+- Advanced analytics and reporting
+- Mobile application development
+- API access for third-party integrations
+
+### 8.2 Scalability Plans
+- Multi-region deployment
+- Enhanced caching strategies
+- Improved automation capabilities
+- Additional language support
+- Extended integration options 
