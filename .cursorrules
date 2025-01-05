@@ -1,0 +1,284 @@
+# AI Coding Guidelines for Multi-Repo Development
+
+## 1. Documentation and Context
+
+### 1.1 File Header Documentation
+Every file must start with a comprehensive header comment containing:
+```typescript
+/**
+ * @fileoverview [Brief description of the file's purpose]
+ * 
+ * @context This file is part of the [feature/system] and interacts with:
+ * - [File/Component 1]: [Brief description of interaction]
+ * - [File/Component 2]: [Brief description of interaction]
+ * 
+ * @flow
+ * 1. [First step in the process]
+ * 2. [Second step in the process]
+ * 3. [Additional steps as needed]
+ * 
+ * @dataFlow
+ * Input: [Description of input data]
+ * Output: [Description of output data]
+ * 
+ * @dependencies
+ * - [Dependency 1]: [Purpose]
+ * - [Dependency 2]: [Purpose]
+ * 
+ * @decisions
+ * - [Decision 1]: [Reasoning]
+ * - [Decision 2]: [Reasoning]
+ */
+```
+
+### 1.2 Function Documentation
+Each significant function should include:
+```typescript
+/**
+ * @function [functionName]
+ * @purpose [Brief description of function purpose]
+ * 
+ * @interaction
+ * - Calls: [List of functions this function calls]
+ * - Called by: [List of functions that call this function]
+ * 
+ * @params
+ * - param1: [Description]
+ * - param2: [Description]
+ * 
+ * @returns [Description of return value]
+ * 
+ * @decisions [Any important implementation decisions]
+ */
+```
+
+## 2. Development Workflow
+
+### 2.1 Iterative Development Rules
+
+#### Small, Focused Changes
+- One logical functionality per commit
+- Each commit should be independently testable
+- Keep changes focused on a single feature or fix
+
+#### Dependency Management
+- Never add new dependencies without explicit user approval
+- Document the purpose and impact of each requested dependency
+- Present alternative options when suggesting dependencies
+
+#### Commit Guidelines
+- Commit after each completed functionality
+- Commit when tests for a feature are completed
+- Commit messages should clearly describe the added functionality
+- Push after significant feature completion or stable checkpoint
+
+### 2.2 Commit Message Structure
+```
+<type>(<scope>): <summary>
+
+<functionality>
+- Feature/Fix: [Description of the implemented functionality]
+- Impact: [What this change enables or fixes]
+- Related Files: [List of affected files]
+
+<dependencies>
+- Required: [List of dependencies needed, awaiting approval]
+- Purpose: [Why each dependency is necessary]
+- Alternatives: [Other possible approaches without new dependencies]
+
+<testing>
+- Tests Added: [Description of new tests]
+- Functionality Covered: [What aspects are being tested]
+```
+
+### 2.3 Dependency Request Template
+```
+Dependency Request:
+1. Package Name: [name]
+2. Version: [version]
+3. Purpose: [specific functionality needed]
+4. Impact: [what it enables]
+5. Size: [package size and dependencies]
+6. Alternatives: 
+   - Alternative 1: [description]
+   - Alternative 2: [description]
+7. Recommendation: [why this package is preferred]
+```
+
+## 3. Stability Guidelines
+
+### 3.1 Pre-Commit Checks
+
+#### Automated Checks
+- Run linting
+- Run type checking
+- Run unit tests
+- Check for circular dependencies
+- Verify documentation completeness
+
+#### Manual Checks
+- Review AI-generated code for hallucinations
+- Verify file interactions match documentation
+- Check for hardcoded values
+- Validate error handling
+
+### 3.2 Build Stability Rules
+- Never push breaking changes to main/master
+- Always test in isolation before integration
+- Maintain separate build configurations per environment
+- Use feature flags for new functionality
+- Implement gradual rollout strategies
+
+## 4. Multi-Repo Specific Guidelines
+
+### 4.1 Repository Structure
+```
+frontend/
+  ├── README.md           # Project overview and setup instructions
+  ├── ARCHITECTURE.md     # Architectural decisions and patterns
+  ├── DEPENDENCIES.md     # External dependencies and their purposes
+  └── src/
+      └── [component]/
+          └── README.md   # Component-specific documentation
+
+backend/
+  ├── README.md
+  ├── ARCHITECTURE.md
+  ├── DEPENDENCIES.md
+  └── src/
+      └── [module]/
+          └── README.md
+
+shared/
+  ├── README.md
+  └── src/
+      └── [module]/
+          └── README.md
+```
+
+### 4.2 Cross-Repo Changes
+- Create atomic changes within each repo
+- Document cross-repo dependencies clearly
+- Use semantic versioning for shared packages
+- Maintain compatibility matrices
+- Implement feature flags across repos
+
+## 5. Testing Strategy
+
+### 5.1 Unit Testing Rules
+- Test file location matches source file structure
+- Each file should have corresponding test file
+- Use descriptive test names that explain the scenario
+- Include positive and negative test cases
+- Mock external dependencies consistently
+
+### 5.2 Integration Testing
+- Test cross-repo functionality
+- Validate data flow between systems
+- Test error handling across boundaries
+- Verify API contracts
+- Test performance impact
+
+## 6. Review Process
+
+### 6.1 Self-Review Checklist
+- Documentation completeness
+- Test coverage
+- Error handling
+- Performance implications
+- Security considerations
+- Cross-repo impacts
+
+### 6.2 Continuous Improvement
+- Document lessons learned
+- Update guidelines based on experience
+- Share knowledge across teams
+- Refine processes iteratively
+- Monitor and adjust metrics
+
+## 7. Metrics for Success
+
+### 7.1 Code Quality Metrics
+- Documentation coverage
+- Test coverage
+- Build stability
+- Code complexity
+- Dependency freshness
+
+### 7.2 Process Metrics
+- Commit frequency
+- Push frequency
+- Build success rate
+- Time to fix broken builds
+- Cross-repo change coordination time
+
+## 8. Security and Stability Guidelines
+
+### 8.1 Security First Approach
+
+#### Code Security
+- No sensitive data in logs or comments
+- Use environment variables for all secrets
+- Implement proper input validation
+- Follow secure coding practices (OWASP)
+- Regular security audit of dependencies
+
+#### Authentication & Authorization
+- Implement proper role-based access
+- Secure all API endpoints
+- Use secure session management
+- Implement rate limiting
+- Log security-related events
+
+#### Data Protection
+- Encrypt sensitive data at rest
+- Use secure communication protocols
+- Implement data backup strategies
+- Define data retention policies
+- Regular security audits
+
+### 8.2 Stability Measures
+
+#### Error Handling
+- Implement comprehensive error handling
+- Use error boundaries in React components
+- Log errors with proper context
+- Implement graceful degradation
+- Monitor error rates and patterns
+
+#### Performance
+- Regular performance audits
+- Optimize database queries
+- Implement proper caching
+- Monitor memory usage
+- Track response times
+
+#### Testing Requirements
+- Unit tests for critical paths
+- Integration tests for key flows
+- End-to-end tests for core features
+- Performance testing
+- Security testing
+
+### 8.3 Monitoring and Maintenance
+
+#### System Monitoring
+- Set up comprehensive logging
+- Monitor system resources
+- Track error rates
+- Monitor performance metrics
+- Set up alerts for critical issues
+
+#### Maintenance Procedures
+- Regular dependency updates
+- Security patch management
+- Database maintenance
+- Log rotation and cleanup
+- Backup verification
+
+#### Incident Response
+- Define severity levels
+- Document response procedures
+- Maintain incident logs
+- Regular incident reviews
+- Update procedures based on learnings 
