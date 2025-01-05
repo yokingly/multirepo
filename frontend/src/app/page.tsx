@@ -2,8 +2,25 @@
 
 import Link from 'next/link';
 import { Navigation } from '@/components/Navigation';
-import { Mail, Shield, BarChart3, Zap, Users, Clock, ArrowRight, CheckCircle2 } from 'lucide-react';
-import { useState } from 'react';
+import { 
+  Mail, 
+  Shield, 
+  BarChart3, 
+  Zap, 
+  Users, 
+  Clock, 
+  ArrowRight, 
+  CheckCircle2 
+} from 'lucide-react';
+import type { LucideProps } from 'lucide-react';
+import { FC, useState } from 'react';
+
+// TODO: Fix type definitions for Lucide icons
+// @ts-ignore
+const IconWrapper: FC<LucideProps & { icon: any }> = ({ icon: Icon, ...props }) => {
+  // @ts-ignore
+  return <Icon {...props} />;
+};
 
 export default function Home() {
   const [email, setEmail] = useState('');
@@ -38,7 +55,7 @@ export default function Home() {
             
             <div className="space-y-4">
               <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
-                Send Cold Emails Like a{" "}
+                Send cold emails like a{" "}
                 <span className="text-blue-600 dark:text-blue-400">Human Being</span>
               </h1>
               <p className="mx-auto max-w-[800px] text-lg text-muted-foreground md:text-xl">
@@ -50,15 +67,15 @@ export default function Home() {
             {/* Key Benefits */}
             <div className="flex flex-wrap justify-center gap-4 text-sm text-muted-foreground">
               <div className="flex items-center">
-                <CheckCircle2 className="mr-2 h-4 w-4 text-blue-600" />
+                <IconWrapper icon={CheckCircle2} className="mr-2 h-4 w-4 text-blue-600" />
                 <span>Complete session simulation</span>
               </div>
               <div className="flex items-center">
-                <CheckCircle2 className="mr-2 h-4 w-4 text-blue-600" />
+                <IconWrapper icon={CheckCircle2} className="mr-2 h-4 w-4 text-blue-600" />
                 <span>Premium residential proxies</span>
               </div>
               <div className="flex items-center">
-                <CheckCircle2 className="mr-2 h-4 w-4 text-blue-600" />
+                <IconWrapper icon={CheckCircle2} className="mr-2 h-4 w-4 text-blue-600" />
                 <span>Enterprise-ready platform</span>
               </div>
             </div>
@@ -75,7 +92,7 @@ export default function Home() {
                 />
                 <button type="submit" className="button-primary bg-blue-600 hover:bg-blue-700">
                   Join Waitlist
-                  <ArrowRight className="ml-2 h-4 w-4" />
+                  <IconWrapper icon={ArrowRight} className="ml-2 h-4 w-4" />
                 </button>
               </form>
               <p className="text-sm text-muted-foreground">
@@ -103,7 +120,7 @@ export default function Home() {
               <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-transparent dark:from-blue-950/50"></div>
               <div className="relative space-y-4">
                 <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-blue-100 dark:bg-blue-900">
-                  <Mail className="h-5 w-5 text-blue-600 dark:text-blue-300" />
+                  <IconWrapper icon={Mail} className="h-5 w-5 text-blue-600 dark:text-blue-300" />
                 </div>
                 <h3 className="text-xl font-bold">Complete Session Simulation</h3>
                 <p className="text-muted-foreground">
@@ -111,15 +128,15 @@ export default function Home() {
                 </p>
                 <ul className="space-y-2 text-sm text-muted-foreground">
                   <li className="flex items-center">
-                    <CheckCircle2 className="mr-2 h-4 w-4 text-blue-600" />
+                    <IconWrapper icon={CheckCircle2} className="mr-2 h-4 w-4 text-blue-600" />
                     <span>Natural page navigation</span>
                   </li>
                   <li className="flex items-center">
-                    <CheckCircle2 className="mr-2 h-4 w-4 text-blue-600" />
+                    <IconWrapper icon={CheckCircle2} className="mr-2 h-4 w-4 text-blue-600" />
                     <span>Realistic reading delays</span>
                   </li>
                   <li className="flex items-center">
-                    <CheckCircle2 className="mr-2 h-4 w-4 text-blue-600" />
+                    <IconWrapper icon={CheckCircle2} className="mr-2 h-4 w-4 text-blue-600" />
                     <span>Human typing patterns</span>
                   </li>
                 </ul>
@@ -129,7 +146,7 @@ export default function Home() {
               <div className="absolute inset-0 bg-gradient-to-br from-purple-50/50 to-transparent dark:from-purple-950/50"></div>
               <div className="relative space-y-4">
                 <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-purple-100 dark:bg-purple-900">
-                  <Shield className="h-5 w-5 text-purple-600 dark:text-purple-300" />
+                  <IconWrapper icon={Shield} className="h-5 w-5 text-purple-600 dark:text-purple-300" />
                 </div>
                 <h3 className="text-xl font-bold">Enterprise-Grade Security</h3>
                 <p className="text-muted-foreground">
@@ -137,15 +154,15 @@ export default function Home() {
                 </p>
                 <ul className="space-y-2 text-sm text-muted-foreground">
                   <li className="flex items-center">
-                    <CheckCircle2 className="mr-2 h-4 w-4 text-purple-600" />
+                    <IconWrapper icon={CheckCircle2} className="mr-2 h-4 w-4 text-purple-600" />
                     <span>Premium residential IPs</span>
                   </li>
                   <li className="flex items-center">
-                    <CheckCircle2 className="mr-2 h-4 w-4 text-purple-600" />
+                    <IconWrapper icon={CheckCircle2} className="mr-2 h-4 w-4 text-purple-600" />
                     <span>Fixed fingerprints per inbox</span>
                   </li>
                   <li className="flex items-center">
-                    <CheckCircle2 className="mr-2 h-4 w-4 text-purple-600" />
+                    <IconWrapper icon={CheckCircle2} className="mr-2 h-4 w-4 text-purple-600" />
                     <span>Automated session management</span>
                   </li>
                 </ul>
@@ -155,7 +172,7 @@ export default function Home() {
               <div className="absolute inset-0 bg-gradient-to-br from-green-50/50 to-transparent dark:from-green-950/50"></div>
               <div className="relative space-y-4">
                 <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-green-100 dark:bg-green-900">
-                  <BarChart3 className="h-5 w-5 text-green-600 dark:text-green-300" />
+                  <IconWrapper icon={BarChart3} className="h-5 w-5 text-green-600 dark:text-green-300" />
                 </div>
                 <h3 className="text-xl font-bold">Enterprise Scale</h3>
                 <p className="text-muted-foreground">
@@ -163,15 +180,15 @@ export default function Home() {
                 </p>
                 <ul className="space-y-2 text-sm text-muted-foreground">
                   <li className="flex items-center">
-                    <CheckCircle2 className="mr-2 h-4 w-4 text-green-600" />
+                    <IconWrapper icon={CheckCircle2} className="mr-2 h-4 w-4 text-green-600" />
                     <span>Team collaboration tools</span>
                   </li>
                   <li className="flex items-center">
-                    <CheckCircle2 className="mr-2 h-4 w-4 text-green-600" />
+                    <IconWrapper icon={CheckCircle2} className="mr-2 h-4 w-4 text-green-600" />
                     <span>Advanced monitoring</span>
                   </li>
                   <li className="flex items-center">
-                    <CheckCircle2 className="mr-2 h-4 w-4 text-green-600" />
+                    <IconWrapper icon={CheckCircle2} className="mr-2 h-4 w-4 text-green-600" />
                     <span>Scalable infrastructure</span>
                   </li>
                 </ul>
@@ -181,7 +198,7 @@ export default function Home() {
               <div className="absolute inset-0 bg-gradient-to-br from-indigo-50/50 to-transparent dark:from-indigo-950/50"></div>
               <div className="relative space-y-4">
                 <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-100 dark:bg-indigo-900">
-                  <Mail className="h-5 w-5 text-indigo-600 dark:text-indigo-300" />
+                  <IconWrapper icon={Mail} className="h-5 w-5 text-indigo-600 dark:text-indigo-300" />
                 </div>
                 <h3 className="text-xl font-bold">AI-powered Inbox</h3>
                 <p className="text-muted-foreground">
@@ -189,15 +206,15 @@ export default function Home() {
                 </p>
                 <ul className="space-y-2 text-sm text-muted-foreground">
                   <li className="flex items-center">
-                    <CheckCircle2 className="mr-2 h-4 w-4 text-indigo-600" />
+                    <IconWrapper icon={CheckCircle2} className="mr-2 h-4 w-4 text-indigo-600" />
                     <span>Smart reply categorization</span>
                   </li>
                   <li className="flex items-center">
-                    <CheckCircle2 className="mr-2 h-4 w-4 text-indigo-600" />
+                    <IconWrapper icon={CheckCircle2} className="mr-2 h-4 w-4 text-indigo-600" />
                     <span>Automated follow-up queues</span>
                   </li>
                   <li className="flex items-center">
-                    <CheckCircle2 className="mr-2 h-4 w-4 text-indigo-600" />
+                    <IconWrapper icon={CheckCircle2} className="mr-2 h-4 w-4 text-indigo-600" />
                     <span>Priority inbox management</span>
                   </li>
                 </ul>
@@ -207,7 +224,7 @@ export default function Home() {
               <div className="absolute inset-0 bg-gradient-to-br from-rose-50/50 to-transparent dark:from-rose-950/50"></div>
               <div className="relative space-y-4">
                 <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-rose-100 dark:bg-rose-900">
-                  <BarChart3 className="h-5 w-5 text-rose-600 dark:text-rose-300" />
+                  <IconWrapper icon={BarChart3} className="h-5 w-5 text-rose-600 dark:text-rose-300" />
                 </div>
                 <h3 className="text-xl font-bold">Campaign Management</h3>
                 <p className="text-muted-foreground">
@@ -215,15 +232,15 @@ export default function Home() {
                 </p>
                 <ul className="space-y-2 text-sm text-muted-foreground">
                   <li className="flex items-center">
-                    <CheckCircle2 className="mr-2 h-4 w-4 text-rose-600" />
+                    <IconWrapper icon={CheckCircle2} className="mr-2 h-4 w-4 text-rose-600" />
                     <span>Real-time campaign tracking</span>
                   </li>
                   <li className="flex items-center">
-                    <CheckCircle2 className="mr-2 h-4 w-4 text-rose-600" />
+                    <IconWrapper icon={CheckCircle2} className="mr-2 h-4 w-4 text-rose-600" />
                     <span>Performance analytics</span>
                   </li>
                   <li className="flex items-center">
-                    <CheckCircle2 className="mr-2 h-4 w-4 text-rose-600" />
+                    <IconWrapper icon={CheckCircle2} className="mr-2 h-4 w-4 text-rose-600" />
                     <span>A/B testing tools</span>
                   </li>
                 </ul>
@@ -233,7 +250,7 @@ export default function Home() {
               <div className="absolute inset-0 bg-gradient-to-br from-amber-50/50 to-transparent dark:from-amber-950/50"></div>
               <div className="relative space-y-4">
                 <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-amber-100 dark:bg-amber-900">
-                  <Zap className="h-5 w-5 text-amber-600 dark:text-amber-300" />
+                  <IconWrapper icon={Zap} className="h-5 w-5 text-amber-600 dark:text-amber-300" />
                 </div>
                 <h3 className="text-xl font-bold">50+ Integrations</h3>
                 <p className="text-muted-foreground">
@@ -241,15 +258,15 @@ export default function Home() {
                 </p>
                 <ul className="space-y-2 text-sm text-muted-foreground">
                   <li className="flex items-center">
-                    <CheckCircle2 className="mr-2 h-4 w-4 text-amber-600" />
+                    <IconWrapper icon={CheckCircle2} className="mr-2 h-4 w-4 text-amber-600" />
                     <span>CRM integrations</span>
                   </li>
                   <li className="flex items-center">
-                    <CheckCircle2 className="mr-2 h-4 w-4 text-amber-600" />
+                    <IconWrapper icon={CheckCircle2} className="mr-2 h-4 w-4 text-amber-600" />
                     <span>Sales tools connectivity</span>
                   </li>
                   <li className="flex items-center">
-                    <CheckCircle2 className="mr-2 h-4 w-4 text-amber-600" />
+                    <IconWrapper icon={CheckCircle2} className="mr-2 h-4 w-4 text-amber-600" />
                     <span>API access</span>
                   </li>
                 </ul>
@@ -275,7 +292,7 @@ export default function Home() {
               <div className="absolute inset-0 bg-gradient-to-br from-orange-50/50 to-transparent dark:from-orange-950/50"></div>
               <div className="relative space-y-4">
                 <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-orange-100 dark:bg-orange-900">
-                  <Users className="h-5 w-5 text-orange-600 dark:text-orange-300" />
+                  <IconWrapper icon={Users} className="h-5 w-5 text-orange-600 dark:text-orange-300" />
                 </div>
                 <h3 className="text-xl font-bold">Scale Seamlessly</h3>
                 <p className="text-muted-foreground">
@@ -287,7 +304,7 @@ export default function Home() {
               <div className="absolute inset-0 bg-gradient-to-br from-red-50/50 to-transparent dark:from-red-950/50"></div>
               <div className="relative space-y-4">
                 <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-red-100 dark:bg-red-900">
-                  <Clock className="h-5 w-5 text-red-600 dark:text-red-300" />
+                  <IconWrapper icon={Clock} className="h-5 w-5 text-red-600 dark:text-red-300" />
                 </div>
                 <h3 className="text-xl font-bold">Save Time</h3>
                 <p className="text-muted-foreground">
@@ -299,7 +316,7 @@ export default function Home() {
               <div className="absolute inset-0 bg-gradient-to-br from-teal-50/50 to-transparent dark:from-teal-950/50"></div>
               <div className="relative space-y-4">
                 <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-teal-100 dark:bg-teal-900">
-                  <Zap className="h-5 w-5 text-teal-600 dark:text-teal-300" />
+                  <IconWrapper icon={Zap} className="h-5 w-5 text-teal-600 dark:text-teal-300" />
                 </div>
                 <h3 className="text-xl font-bold">Boost Results</h3>
                 <p className="text-muted-foreground">
@@ -342,7 +359,7 @@ export default function Home() {
                 />
                 <button type="submit" className="button-primary bg-blue-600 hover:bg-blue-700">
                   Join Waitlist
-                  <ArrowRight className="ml-2 h-4 w-4" />
+                  <IconWrapper icon={ArrowRight} className="ml-2 h-4 w-4" />
                 </button>
               </form>
               <p className="text-sm text-muted-foreground">
