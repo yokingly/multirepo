@@ -73,145 +73,133 @@ const WaitlistForm = ({ className = '' }: { className?: string }) => {
 };
 
 const HowItWorksChart = () => {
+  const sessions = [
+    {
+      name: "Gmail Session",
+      logo: "/gmail icon.webp",
+      browser: "Chrome",
+      location: "🇺🇸 New York, USA",
+      ip: "172.217.168.46",
+      mailbox: "daniel@sendhuman.com",
+      stats: {
+        sent: 23,
+        read: 12,
+        replied: 7,
+        clicked: 5
+      }
+    },
+    {
+      name: "Gmail Session",
+      logo: "/gmail icon.webp",
+      browser: "Firefox",
+      location: "🇳🇱 Amsterdam, NL",
+      ip: "216.58.213.110",
+      mailbox: "dan@sendhuman.ai",
+      stats: {
+        sent: 18,
+        read: 8,
+        replied: 5,
+        clicked: 3
+      }
+    },
+    {
+      name: "Outlook Session",
+      logo: "/outlook-logo.png",
+      browser: "Edge",
+      location: "🇬🇧 London, UK",
+      ip: "40.99.143.165",
+      mailbox: "danny@sendhuman.co",
+      stats: {
+        sent: 19,
+        read: 9,
+        replied: 4,
+        clicked: 3
+      }
+    }
+  ];
+
+  // Calculate total stats
+  const totalStats = sessions.reduce((acc, session) => ({
+    sent: acc.sent + session.stats.sent,
+    read: acc.read + session.stats.read,
+    replied: acc.replied + session.stats.replied,
+    clicked: acc.clicked + session.stats.clicked
+  }), { sent: 0, read: 0, replied: 0, clicked: 0 });
+
   return (
     <div className="relative w-full py-20 overflow-hidden">
       {/* Main Platform Card */}
       <div className="relative z-10 mx-auto mb-16 max-w-lg">
         <div className="transform transition-all hover:translate-y-[-4px] bg-[#2c3e50] text-white rounded-xl p-6 shadow-lg">
-          <h3 className="text-2xl font-bold text-center">Sendhuman</h3>
+          <h3 className="text-2xl font-bold text-center mb-4">Sendhuman</h3>
+          <div className="grid grid-cols-2 gap-4">
+            <div className="text-center">
+              <div className="text-sm text-gray-300">Total Sent</div>
+              <div className="text-xl font-bold text-blue-400">{totalStats.sent}</div>
+            </div>
+            <div className="text-center">
+              <div className="text-sm text-gray-300">Total Read</div>
+              <div className="text-xl font-bold text-green-400">{totalStats.read}</div>
+            </div>
+            <div className="text-center">
+              <div className="text-sm text-gray-300">Total Replies</div>
+              <div className="text-xl font-bold text-purple-400">{totalStats.replied}</div>
+            </div>
+            <div className="text-center">
+              <div className="text-sm text-gray-300">Total Clicked</div>
+              <div className="text-xl font-bold text-orange-400">{totalStats.clicked}</div>
+            </div>
+          </div>
         </div>
       </div>
 
       {/* SVG Connection Lines */}
       <div className="absolute top-0 left-0 w-full h-full pointer-events-none" style={{ top: '120px' }}>
-        <svg className="w-full h-[200px]" preserveAspectRatio="xMidYMid meet" viewBox="0 0 1200 200">
-          {/* Left Connection */}
-          <path 
-            d="M600,10 L300,180" 
-            className="stroke-[#3498db] stroke-2 opacity-50"
-            strokeDasharray="4,4"
-          />
-          <path 
-            d="M300,170 L600,0" 
-            className="stroke-[#2c3e50] stroke-2 opacity-50"
-            strokeDasharray="4,4"
-          />
-          
-          {/* Middle Connection */}
-          <path 
-            d="M600,10 L600,180" 
-            className="stroke-[#3498db] stroke-2 opacity-50"
-            strokeDasharray="4,4"
-          />
-          <path 
-            d="M600,170 L600,0" 
-            className="stroke-[#2c3e50] stroke-2 opacity-50"
-            strokeDasharray="4,4"
-          />
-          
-          {/* Right Connection */}
-          <path 
-            d="M600,10 L900,180" 
-            className="stroke-[#3498db] stroke-2 opacity-50"
-            strokeDasharray="4,4"
-          />
-          <path 
-            d="M900,170 L600,0" 
-            className="stroke-[#2c3e50] stroke-2 opacity-50"
-            strokeDasharray="4,4"
-          />
-
-          {/* Animated Dots (Forward) */}
-          <circle className="fill-blue-500 animate-[moveDown_3s_linear_infinite]">
-            <animateMotion 
-              dur="3s" 
-              repeatCount="indefinite"
-              path="M600,10 L300,180"
-            />
-          </circle>
-          <circle className="fill-blue-500 animate-[moveDown_3s_linear_infinite]">
-            <animateMotion 
-              dur="3s" 
-              repeatCount="indefinite"
-              path="M600,10 L600,180"
-            />
-          </circle>
-          <circle className="fill-blue-500 animate-[moveDown_3s_linear_infinite]">
-            <animateMotion 
-              dur="3s" 
-              repeatCount="indefinite"
-              path="M600,10 L900,180"
-            />
-          </circle>
-
-          {/* Animated Dots (Backward) */}
-          <circle className="fill-green-500 animate-[moveUp_3s_linear_infinite]">
-            <animateMotion 
-              dur="3s" 
-              repeatCount="indefinite"
-              path="M300,170 L600,0"
-            />
-          </circle>
-          <circle className="fill-green-500 animate-[moveUp_3s_linear_infinite]">
-            <animateMotion 
-              dur="3s" 
-              repeatCount="indefinite"
-              path="M600,170 L600,0"
-            />
-          </circle>
-          <circle className="fill-green-500 animate-[moveUp_3s_linear_infinite]">
-            <animateMotion 
-              dur="3s" 
-              repeatCount="indefinite"
-              path="M900,170 L600,0"
-            />
-          </circle>
+        <svg className="w-full h-[300px]" preserveAspectRatio="xMidYMid meet" viewBox="0 0 1200 300">
+          {/* Connection Lines for each container */}
+          {[0, 1, 2].map((index) => {
+            const x = 400 + (index - 1) * 300;
+            return (
+              <g key={index}>
+                {/* Input Line (Platform to Container) */}
+                <line 
+                  x1="600" y1="80" 
+                  x2={x} y2="80" 
+                  className="stroke-[#3498db] stroke-2 opacity-50"
+                  strokeDasharray="4,4"
+                />
+                {/* Output Line (Container to Platform) */}
+                <line 
+                  x1={x} y1="100" 
+                  x2="600" y2="100" 
+                  className="stroke-[#2ecc71] stroke-2 opacity-50"
+                  strokeDasharray="4,4"
+                />
+                {/* Animated Dots - Input */}
+                <circle r="3" className="fill-blue-500">
+                  <animateMotion 
+                    dur="3s" 
+                    repeatCount="indefinite"
+                    path={`M600,80 L${x},80`}
+                  />
+                </circle>
+                {/* Animated Dots - Output */}
+                <circle r="3" className="fill-green-500">
+                  <animateMotion 
+                    dur="3s" 
+                    repeatCount="indefinite"
+                    path={`M${x},100 L600,100`}
+                  />
+                </circle>
+              </g>
+            );
+          })}
         </svg>
       </div>
 
       {/* Container Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto px-4">
-        {[
-          {
-            name: "Gmail Session",
-            logo: "/gmail icon.webp",
-            browser: "Chrome",
-            location: "New York, USA",
-            ip: "172.217.168.46",
-            stats: {
-              sent: 23,
-              read: 12,
-              replied: 7,
-              clicked: 5
-            }
-          },
-          {
-            name: "Gmail Session",
-            logo: "/gmail icon.webp",
-            browser: "Firefox",
-            location: "Amsterdam, NL",
-            ip: "216.58.213.110",
-            stats: {
-              sent: 18,
-              read: 8,
-              replied: 5,
-              clicked: 3
-            }
-          },
-          {
-            name: "Outlook Session",
-            logo: "/outlook-logo.png",
-            browser: "Edge",
-            location: "London, UK",
-            ip: "40.99.143.165",
-            stats: {
-              sent: 19,
-              read: 9,
-              replied: 4,
-              clicked: 3
-            }
-          }
-        ].map((env, index) => (
+        {sessions.map((env, index) => (
           <div key={index} className="group relative">
             <div className="transform transition-all group-hover:translate-y-[-4px] bg-gradient-to-br from-white to-blue-50 rounded-xl p-6 shadow-md border border-blue-100">
               <div className="text-center mb-6">
@@ -226,6 +214,13 @@ const HowItWorksChart = () => {
                 <h4 className="text-lg font-semibold text-[#2c3e50] mb-2">
                   {env.name}
                 </h4>
+                
+                {/* Mailbox */}
+                <div className="mb-4">
+                  <span className="px-3 py-1.5 bg-blue-50 text-blue-700 rounded-full text-sm font-medium">
+                    {env.mailbox}
+                  </span>
+                </div>
                 
                 {/* Technical Details Pills */}
                 <div className="flex flex-wrap gap-2 justify-center mb-4">
