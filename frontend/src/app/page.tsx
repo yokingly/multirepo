@@ -38,12 +38,12 @@ export default function Home() {
             
             <div className="space-y-4">
               <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
-                Cold Outreach That&apos;s{" "}
-                <span className="text-blue-600 dark:text-blue-400">Undetectable</span>
+                Send Cold Emails Like a{" "}
+                <span className="text-blue-600 dark:text-blue-400">Human Being</span>
               </h1>
               <p className="mx-auto max-w-[800px] text-lg text-muted-foreground md:text-xl">
-                Advanced human behavior simulation that makes your cold emails indistinguishable from real users.
-                Built for enterprise sales teams who need unmatched deliverability.
+                Advanced human behavior simulation that makes your outreach truly indistinguishable from manual sending.
+                Built for enterprise sales teams who need unmatched deliverability at scale.
               </p>
             </div>
 
@@ -98,7 +98,7 @@ export default function Home() {
               that make detection virtually impossible for email service providers
             </p>
           </div>
-          <div className="grid gap-8 md:grid-cols-3">
+          <div className="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             <div className="group relative overflow-hidden rounded-lg border bg-background p-6 hover:shadow-lg transition-all">
               <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-transparent dark:from-blue-950/50"></div>
               <div className="relative space-y-4">
@@ -173,6 +173,84 @@ export default function Home() {
                   <li className="flex items-center">
                     <CheckCircle2 className="mr-2 h-4 w-4 text-green-600" />
                     <span>Scalable infrastructure</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div className="group relative overflow-hidden rounded-lg border bg-background p-6 hover:shadow-lg transition-all">
+              <div className="absolute inset-0 bg-gradient-to-br from-indigo-50/50 to-transparent dark:from-indigo-950/50"></div>
+              <div className="relative space-y-4">
+                <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-100 dark:bg-indigo-900">
+                  <Mail className="h-5 w-5 text-indigo-600 dark:text-indigo-300" />
+                </div>
+                <h3 className="text-xl font-bold">AI-powered Inbox</h3>
+                <p className="text-muted-foreground">
+                  Smart inbox that automatically consolidates and categorizes all prospect replies for efficient follow-ups.
+                </p>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li className="flex items-center">
+                    <CheckCircle2 className="mr-2 h-4 w-4 text-indigo-600" />
+                    <span>Smart reply categorization</span>
+                  </li>
+                  <li className="flex items-center">
+                    <CheckCircle2 className="mr-2 h-4 w-4 text-indigo-600" />
+                    <span>Automated follow-up queues</span>
+                  </li>
+                  <li className="flex items-center">
+                    <CheckCircle2 className="mr-2 h-4 w-4 text-indigo-600" />
+                    <span>Priority inbox management</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div className="group relative overflow-hidden rounded-lg border bg-background p-6 hover:shadow-lg transition-all">
+              <div className="absolute inset-0 bg-gradient-to-br from-rose-50/50 to-transparent dark:from-rose-950/50"></div>
+              <div className="relative space-y-4">
+                <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-rose-100 dark:bg-rose-900">
+                  <BarChart3 className="h-5 w-5 text-rose-600 dark:text-rose-300" />
+                </div>
+                <h3 className="text-xl font-bold">Campaign Management</h3>
+                <p className="text-muted-foreground">
+                  Comprehensive campaign oversight with real-time tracking and performance analytics.
+                </p>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li className="flex items-center">
+                    <CheckCircle2 className="mr-2 h-4 w-4 text-rose-600" />
+                    <span>Real-time campaign tracking</span>
+                  </li>
+                  <li className="flex items-center">
+                    <CheckCircle2 className="mr-2 h-4 w-4 text-rose-600" />
+                    <span>Performance analytics</span>
+                  </li>
+                  <li className="flex items-center">
+                    <CheckCircle2 className="mr-2 h-4 w-4 text-rose-600" />
+                    <span>A/B testing tools</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div className="group relative overflow-hidden rounded-lg border bg-background p-6 hover:shadow-lg transition-all">
+              <div className="absolute inset-0 bg-gradient-to-br from-amber-50/50 to-transparent dark:from-amber-950/50"></div>
+              <div className="relative space-y-4">
+                <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-amber-100 dark:bg-amber-900">
+                  <Zap className="h-5 w-5 text-amber-600 dark:text-amber-300" />
+                </div>
+                <h3 className="text-xl font-bold">50+ Integrations</h3>
+                <p className="text-muted-foreground">
+                  Seamlessly connect with your favorite tools and enhance your workflow efficiency.
+                </p>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li className="flex items-center">
+                    <CheckCircle2 className="mr-2 h-4 w-4 text-amber-600" />
+                    <span>CRM integrations</span>
+                  </li>
+                  <li className="flex items-center">
+                    <CheckCircle2 className="mr-2 h-4 w-4 text-amber-600" />
+                    <span>Sales tools connectivity</span>
+                  </li>
+                  <li className="flex items-center">
+                    <CheckCircle2 className="mr-2 h-4 w-4 text-amber-600" />
+                    <span>API access</span>
                   </li>
                 </ul>
               </div>
