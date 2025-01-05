@@ -81,15 +81,28 @@ const HowItWorksChart = () => {
           <h3 className="text-2xl font-bold text-center">SendHuman</h3>
         </div>
         
-        {/* Animated Connection Lines */}
-        <div className="absolute left-1/2 -translate-x-1/2 w-[600px] h-16 flex justify-between items-center px-8">
-          <div className="w-1/2 h-0.5 bg-gradient-to-r from-[#2c3e50] to-[#3498db] animate-pulse"></div>
-          <div className="w-1/2 h-0.5 bg-gradient-to-r from-[#2c3e50] to-[#3498db] animate-pulse"></div>
+        {/* Animated Connection Lines with Arrows */}
+        <div className="absolute left-1/2 -translate-x-1/2 w-[900px] h-16">
+          {/* Left Connection */}
+          <div className="absolute left-0 w-1/3 flex flex-col items-center">
+            <div className="h-0.5 w-full bg-gradient-to-r from-[#2c3e50] to-[#3498db] animate-pulse"></div>
+            <div className="mt-2 h-0.5 w-full bg-gradient-to-l from-[#2c3e50] to-[#3498db] animate-pulse"></div>
+          </div>
+          {/* Middle Connection */}
+          <div className="absolute left-1/3 w-1/3 flex flex-col items-center">
+            <div className="h-0.5 w-full bg-gradient-to-r from-[#2c3e50] to-[#3498db] animate-pulse"></div>
+            <div className="mt-2 h-0.5 w-full bg-gradient-to-l from-[#2c3e50] to-[#3498db] animate-pulse"></div>
+          </div>
+          {/* Right Connection */}
+          <div className="absolute left-2/3 w-1/3 flex flex-col items-center">
+            <div className="h-0.5 w-full bg-gradient-to-r from-[#2c3e50] to-[#3498db] animate-pulse"></div>
+            <div className="mt-2 h-0.5 w-full bg-gradient-to-l from-[#2c3e50] to-[#3498db] animate-pulse"></div>
+          </div>
         </div>
       </div>
 
       {/* Container Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto px-4">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto px-4">
         {[
           {
             name: "Gmail Session",
@@ -100,12 +113,29 @@ const HowItWorksChart = () => {
             </svg>`,
             browser: "Chrome",
             location: "New York, USA",
-            ip: "156.33.x.x",
+            ip: "172.217.168.46",
             stats: {
               sent: 23,
               read: 12,
               replied: 7,
               clicked: 5
+            }
+          },
+          {
+            name: "Gmail Session",
+            logo: `<svg className="w-8 h-8" viewBox="0 0 24 24" fill="none">
+              <path d="M22.5 4.5v15c0 .85-.65 1.5-1.5 1.5H3c-.85 0-1.5-.65-1.5-1.5v-15c0-.85.65-1.5 1.5-1.5h18c.85 0 1.5.65 1.5 1.5z" fill="#E6E6E6"/>
+              <path d="M22.5 4.5L12 12L1.5 4.5" stroke="#DB4437" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M12 12L1.5 4.5h19.5L12 12z" fill="#DB4437"/>
+            </svg>`,
+            browser: "Firefox",
+            location: "Amsterdam, NL",
+            ip: "216.58.213.110",
+            stats: {
+              sent: 18,
+              read: 8,
+              replied: 5,
+              clicked: 3
             }
           },
           {
@@ -117,7 +147,7 @@ const HowItWorksChart = () => {
             </svg>`,
             browser: "Edge",
             location: "London, UK",
-            ip: "82.14.x.x",
+            ip: "40.99.143.165",
             stats: {
               sent: 19,
               read: 9,
@@ -143,7 +173,7 @@ const HowItWorksChart = () => {
                   <span className="px-2 py-1 bg-green-100 text-green-700 rounded-full text-xs font-medium">
                     {env.location}
                   </span>
-                  <span className="px-2 py-1 bg-purple-100 text-purple-700 rounded-full text-xs font-medium">
+                  <span className="px-2 py-1 bg-purple-100 text-purple-700 rounded-full text-xs font-medium whitespace-nowrap">
                     IP: {env.ip}
                   </span>
                 </div>
@@ -196,7 +226,7 @@ const HowItWorksChart = () => {
       {/* Description */}
       <div className="mt-12 text-center max-w-2xl mx-auto px-4">
         <p className="text-gray-600">
-          Each email client session operates independently with randomized behavior patterns, making your outreach truly indistinguishable from manual sending.
+          Each email client session operates independently with randomized behavior patterns, while continuously reporting metrics back to the platform in real-time.
         </p>
       </div>
     </div>
