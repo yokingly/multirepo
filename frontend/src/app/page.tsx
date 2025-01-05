@@ -103,8 +103,7 @@ export default function Home() {
                 <span>would</span>
               </h1>
               <p className="mx-auto max-w-[800px] text-lg text-muted-foreground md:text-xl">
-                Ditch API-based sending and achieve unmatched deliverability by replicating real human behavior in email clients. 
-                Our stealth technology uses isolated browser fingerprints, residential proxies, and complete session simulation to make your outreach truly undetectable.
+                Achieve unmatched deliverability by replicating real human behavior in email clients.
               </p>
             </div>
 
@@ -112,15 +111,15 @@ export default function Home() {
             <div className="flex flex-wrap justify-center gap-4 text-sm text-muted-foreground">
               <div className="flex items-center">
                 <IconWrapper icon={CheckCircle2} className="mr-2 h-4 w-4 text-blue-600" />
-                <span>Real browser automation</span>
+                <span>Land in primary inbox</span>
               </div>
               <div className="flex items-center">
                 <IconWrapper icon={CheckCircle2} className="mr-2 h-4 w-4 text-blue-600" />
-                <span>Isolated fingerprints</span>
+                <span>Scale safely</span>
               </div>
               <div className="flex items-center">
                 <IconWrapper icon={CheckCircle2} className="mr-2 h-4 w-4 text-blue-600" />
-                <span>Residential proxies</span>
+                <span>Stay undetected</span>
               </div>
             </div>
 
