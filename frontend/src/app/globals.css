@@ -2,37 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Connection animations */
-@keyframes moveUp {
-  0% { transform: translateY(0); opacity: 0; }
-  20% { opacity: 1; }
-  80% { opacity: 1; }
-  100% { transform: translateY(-120px); opacity: 0; }
+/* Chart styles */
+.chart-container {
+  @apply relative w-full;
 }
 
-@keyframes moveDown {
-  0% { transform: translateY(0); opacity: 0; }
-  20% { opacity: 1; }
-  80% { opacity: 1; }
-  100% { transform: translateY(120px); opacity: 0; }
+.chart-card {
+  @apply relative bg-white dark:bg-gray-800 rounded-xl p-6 transition-all duration-200;
 }
 
-.connection-line {
-  @apply absolute w-[1px] bg-gradient-to-b from-blue-500/30 via-blue-500/20 to-transparent;
+.chart-card-primary {
+  @apply bg-[#2c3e50] text-white;
 }
 
-.connection-dot {
-  @apply absolute w-1.5 h-1.5 rounded-full;
+.chart-card-secondary {
+  @apply bg-gradient-to-br from-white to-blue-50 dark:from-gray-800 dark:to-gray-900;
 }
 
-.connection-dot-down {
-  @apply bg-blue-500;
-  animation: moveDown 3s infinite;
+.chart-stats {
+  @apply flex items-center justify-between text-sm;
 }
 
-.connection-dot-up {
-  @apply bg-green-500;
-  animation: moveUp 3s infinite;
+.chart-connection-bg {
+  @apply absolute inset-0 bg-gradient-to-b from-blue-50/20 via-transparent to-blue-50/20 dark:from-blue-900/20 dark:to-blue-900/20;
 }
 
 @layer base {

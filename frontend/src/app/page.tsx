@@ -134,26 +134,28 @@ const HowItWorksChart = () => {
   }), { sent: 0, read: 0, replied: 0, clicked: 0 });
 
   return (
-    <div className="relative w-full py-20">
+    <div className="chart-container py-20">
+      <div className="chart-connection-bg" />
+      
       {/* Main Platform Card */}
-      <div className="relative z-10 mx-auto mb-12 max-w-lg">
-        <div className="transform transition-all hover:translate-y-[-4px] bg-[#2c3e50] text-white rounded-xl p-6 shadow-lg">
-          <h3 className="text-2xl font-bold text-center mb-4">Sendhuman</h3>
-          <div className="grid grid-cols-2 gap-4">
-            <div className="text-center">
-              <div className="text-sm text-gray-300">Total Sent</div>
+      <div className="relative z-10 mx-auto mb-16 max-w-lg">
+        <div className="chart-card chart-card-primary shadow-lg hover:translate-y-[-4px] transition-transform">
+          <h3 className="text-2xl font-bold text-center mb-6">Sendhuman Platform</h3>
+          <div className="grid grid-cols-2 gap-6">
+            <div className="text-center p-3 bg-white/10 rounded-lg">
+              <div className="text-sm text-gray-300 mb-1">Total Sent</div>
               <div className="text-xl font-bold text-blue-400">{totalStats.sent}</div>
             </div>
-            <div className="text-center">
-              <div className="text-sm text-gray-300">Total Read</div>
+            <div className="text-center p-3 bg-white/10 rounded-lg">
+              <div className="text-sm text-gray-300 mb-1">Total Read</div>
               <div className="text-xl font-bold text-green-400">{totalStats.read}</div>
             </div>
-            <div className="text-center">
-              <div className="text-sm text-gray-300">Total Replies</div>
+            <div className="text-center p-3 bg-white/10 rounded-lg">
+              <div className="text-sm text-gray-300 mb-1">Total Replies</div>
               <div className="text-xl font-bold text-purple-400">{totalStats.replied}</div>
             </div>
-            <div className="text-center">
-              <div className="text-sm text-gray-300">Total Clicked</div>
+            <div className="text-center p-3 bg-white/10 rounded-lg">
+              <div className="text-sm text-gray-300 mb-1">Total Clicked</div>
               <div className="text-xl font-bold text-orange-400">{totalStats.clicked}</div>
             </div>
           </div>
@@ -163,8 +165,8 @@ const HowItWorksChart = () => {
       {/* Container Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto px-4">
         {sessions.map((env, index) => (
-          <div key={index} className="group relative">
-            <div className="transform transition-all group-hover:translate-y-[-4px] bg-gradient-to-br from-white to-blue-50 rounded-xl p-6 shadow-md border border-blue-100">
+          <div key={index} className="group">
+            <div className="chart-card chart-card-secondary shadow-md hover:translate-y-[-4px] transition-transform">
               <div className="text-center mb-6">
                 {/* Platform Logo */}
                 <div className="inline-flex items-center justify-center w-16 h-16 mb-3 rounded-full bg-white/80 backdrop-blur-sm shadow-sm border border-gray-100">
@@ -203,28 +205,28 @@ const HowItWorksChart = () => {
 
               {/* Activity Stats with Icons */}
               <div className="space-y-3">
-                <div className="flex items-center justify-between text-sm">
+                <div className="chart-stats">
                   <span className="flex items-center text-gray-600">
                     <IconWrapper icon={Send} className="mr-2 h-4 w-4 text-blue-600" />
                     Emails Sent
                   </span>
                   <span className="font-semibold text-blue-600">{env.stats.sent}</span>
                 </div>
-                <div className="flex items-center justify-between text-sm">
+                <div className="chart-stats">
                   <span className="flex items-center text-gray-600">
                     <IconWrapper icon={Eye} className="mr-2 h-4 w-4 text-green-600" />
                     Emails Read
                   </span>
                   <span className="font-semibold text-green-600">{env.stats.read}</span>
                 </div>
-                <div className="flex items-center justify-between text-sm">
+                <div className="chart-stats">
                   <span className="flex items-center text-gray-600">
                     <IconWrapper icon={Reply} className="mr-2 h-4 w-4 text-purple-600" />
                     Replies
                   </span>
                   <span className="font-semibold text-purple-600">{env.stats.replied}</span>
                 </div>
-                <div className="flex items-center justify-between text-sm">
+                <div className="chart-stats">
                   <span className="flex items-center text-gray-600">
                     <IconWrapper icon={MousePointerClick} className="mr-2 h-4 w-4 text-orange-600" />
                     Links Clicked
