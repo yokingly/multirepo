@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 export function Navigation() {
   const scrollToHowItWorks = () => {
-    const howItWorksSection = document.querySelector('.hierarchy-container');
+    const howItWorksSection = document.querySelector('.chart-card-secondary');
     if (howItWorksSection) {
       howItWorksSection.scrollIntoView({ behavior: 'smooth' });
     }
@@ -23,10 +23,7 @@ export function Navigation() {
           <Link href="/login" className="nav-link">
             Sign in
           </Link>
-          <button 
-            onClick={scrollToHowItWorks}
-            className="button-primary"
-          >
+          <button onClick={scrollToHowItWorks} className="button-primary">
             Join Waitlist
           </button>
         </div>
