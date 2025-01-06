@@ -5,7 +5,7 @@ import './globals.css';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'SendHuman - Email Like a Human',
+  title: 'Sendhuman - Email Like a Human',
   description: 'Send emails like a human, not a robot',
 };
 

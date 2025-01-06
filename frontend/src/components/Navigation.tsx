@@ -10,7 +10,7 @@ export function Navigation() {
         <div className="flex flex-1 items-center justify-between">
           <Link href="/" className="flex items-center space-x-2">
             <div className="font-bold text-xl gradient-text">
-              SendHuman
+              Sendhuman
             </div>
           </Link>
           <nav className="flex items-center space-x-6">
