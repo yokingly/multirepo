@@ -1,11 +1,18 @@
-import { auth } from '@clerk/nextjs'
-import { redirect } from 'next/navigation'
+'use client';
 
-export default async function DashboardPage() {
-  const { userId } = auth()
+import React from 'react';
+import { useAuth } from '@clerk/nextjs';
+import { redirect } from 'next/navigation';
+
+export default function DashboardPage() {
+  const { userId, isLoaded } = useAuth();
+  
+  if (!isLoaded) {
+    return null;
+  }
   
   if (!userId) {
-    redirect('/sign-in')
+    redirect('/sign-in');
   }
 
   return (
