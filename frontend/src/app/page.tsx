@@ -383,7 +383,7 @@ export default function Home() {
                 />
               </h1>
               <p className="mx-auto max-w-[800px] text-lg text-muted-foreground md:text-xl">
-                Achieve unmatched deliverability by replicating real human behavior in email clients.
+                Achieve unmatched deliverability by replicating real human behavior across email clients.
               </p>
             </div>
 
