@@ -372,7 +372,7 @@ export default function Home() {
         <div className="container relative">
           <div className="flex flex-col items-center space-y-8 text-center">
             {/* Badge */}
-            <div className="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-blue-100 text-blue-900 dark:bg-blue-900 dark:text-blue-100">
+            <div className="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-amber-100 text-amber-900 dark:bg-amber-900 dark:text-amber-100">
               <span>✨ Now in private beta</span>
             </div>
             
@@ -392,15 +392,15 @@ export default function Home() {
             {/* Key Benefits */}
             <div className="flex flex-wrap justify-center gap-4 text-sm text-muted-foreground">
               <div className="flex items-center">
-                <IconWrapper icon={CheckCircle2} className="mr-2 h-4 w-4 text-blue-600" />
+                <IconWrapper icon={CheckCircle2} className="mr-2 h-4 w-4 text-green-600" />
                 <span>Land in the primary</span>
               </div>
               <div className="flex items-center">
-                <IconWrapper icon={CheckCircle2} className="mr-2 h-4 w-4 text-blue-600" />
+                <IconWrapper icon={CheckCircle2} className="mr-2 h-4 w-4 text-green-600" />
                 <span>Scale safely</span>
               </div>
               <div className="flex items-center">
-                <IconWrapper icon={CheckCircle2} className="mr-2 h-4 w-4 text-blue-600" />
+                <IconWrapper icon={CheckCircle2} className="mr-2 h-4 w-4 text-green-600" />
                 <span>Stay undetected</span>
               </div>
             </div>
