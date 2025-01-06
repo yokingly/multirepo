@@ -4,6 +4,13 @@ import * as React from 'react';
 import Link from 'next/link';
 
 export function Navigation() {
+  const scrollToHowItWorks = () => {
+    const howItWorksSection = document.querySelector('.hierarchy-container');
+    if (howItWorksSection) {
+      howItWorksSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur-sm">
       <div className="container flex h-16 items-center justify-between">
@@ -16,9 +23,12 @@ export function Navigation() {
           <Link href="/login" className="nav-link">
             Sign in
           </Link>
-          <Link href="/signup" className="button-primary">
+          <button 
+            onClick={scrollToHowItWorks}
+            className="button-primary"
+          >
             Join Waitlist
-          </Link>
+          </button>
         </div>
       </div>
     </header>
