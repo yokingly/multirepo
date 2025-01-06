@@ -24,12 +24,12 @@ export default function RootLayout({
             <nav className="flex gap-4 items-center">
               <SignedOut>
                 <SignInButton mode="modal">
-                  <button className="px-4 py-2 rounded bg-blue-500 text-white hover:bg-blue-600">
+                  <button className="button-primary bg-blue-600 hover:bg-blue-700 flex items-center justify-center h-10 px-4 rounded-md text-white font-medium transition-all duration-200">
                     Sign In
                   </button>
                 </SignInButton>
                 <SignUpButton mode="modal">
-                  <button className="px-4 py-2 rounded border border-blue-500 text-blue-500 hover:bg-blue-50">
+                  <button className="button-primary bg-white hover:bg-blue-50 flex items-center justify-center h-10 px-4 rounded-md text-blue-600 font-medium transition-all duration-200 border border-blue-600">
                     Sign Up
                   </button>
                 </SignUpButton>
