@@ -16,10 +16,10 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
-        <body>
-          <header className="flex justify-between items-center p-4 bg-white shadow-sm">
+        <body className="min-h-screen bg-white">
+          <header className="fixed top-0 left-0 right-0 z-50 flex justify-between items-center p-4 bg-white shadow-sm">
             <div className="flex-1">
-              {/* Your logo or brand name here */}
+              <a href="/" className="text-xl font-bold text-blue-600">Sendhuman</a>
             </div>
             <nav className="flex gap-4 items-center">
               <SignedOut>
@@ -35,11 +35,14 @@ export default function RootLayout({
                 </SignUpButton>
               </SignedOut>
               <SignedIn>
-                <UserButton afterSignOutUrl="/" />
+                <div className="flex items-center gap-4">
+                  <a href="/dashboard" className="text-blue-600 hover:text-blue-800">Dashboard</a>
+                  <UserButton afterSignOutUrl="/" />
+                </div>
               </SignedIn>
             </nav>
           </header>
-          <main>
+          <main className="pt-16">
             {children}
           </main>
         </body>
