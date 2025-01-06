@@ -102,7 +102,7 @@ const HowItWorksChart = () => {
       browser: "Chrome",
       location: "🇺🇸 New York, USA",
       ip: "172.217.168.46",
-      mailbox: "daniel@sendhuman.com",
+      mailbox: "danny@sendhuman.ai",
       duration: "2h 15m",
       status: "active",
       stats: {
@@ -118,7 +118,7 @@ const HowItWorksChart = () => {
       browser: "Edge",
       location: "🇬🇧 London, UK",
       ip: "40.99.143.165",
-      mailbox: "danny@sendhuman.co",
+      mailbox: "dan@sendhuman.com",
       duration: "3h 30m",
       status: "active",
       stats: {
@@ -134,7 +134,7 @@ const HowItWorksChart = () => {
       browser: "Firefox",
       location: "🇳🇱 Amsterdam, NL",
       ip: "216.58.213.110",
-      mailbox: "dan@sendhuman.ai",
+      mailbox: "daniel@sendhuman.co",
       duration: "1h 45m",
       status: "downtime",
       stats: {
@@ -150,7 +150,7 @@ const HowItWorksChart = () => {
       browser: "Safari",
       location: "🇨🇦 Toronto, CA",
       ip: "172.217.164.78",
-      mailbox: "sales@sendhuman.com",
+      mailbox: "danny@sendhuman.ai",
       duration: "4h 20m",
       status: "active",
       stats: {
@@ -166,7 +166,7 @@ const HowItWorksChart = () => {
       browser: "Edge",
       location: "🇦🇺 Sydney, AU",
       ip: "40.99.147.182",
-      mailbox: "support@sendhuman.co",
+      mailbox: "dan@sendhuman.com",
       duration: "2h 45m",
       status: "downtime",
       stats: {
@@ -182,7 +182,7 @@ const HowItWorksChart = () => {
       browser: "Chrome",
       location: "🇸🇬 Singapore, SG",
       ip: "172.217.194.103",
-      mailbox: "asia@sendhuman.com",
+      mailbox: "daniel@sendhuman.co",
       duration: "5h 10m",
       status: "active",
       stats: {
@@ -735,8 +735,8 @@ export default function Home() {
                 <h4 className="text-lg font-semibold">Contact</h4>
                 <ul className="space-y-2">
                   <li>
-                    <a href="mailto:support@sendhuman.com" className="text-sm text-muted-foreground hover:text-foreground">
-                      support@sendhuman.com
+                    <a href="mailto:dan@sendhuman.com" className="text-sm text-muted-foreground hover:text-foreground">
+                      dan@sendhuman.com
                     </a>
                   </li>
                   <li>
