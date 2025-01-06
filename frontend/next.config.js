@@ -5,7 +5,6 @@ const nextConfig = {
     NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL,
     CLERK_SECRET_KEY: process.env.CLERK_SECRET_KEY,
   },
-  output: 'standalone',
 }
 
 module.exports = nextConfig 
