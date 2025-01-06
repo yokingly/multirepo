@@ -14,13 +14,14 @@ import {
   Eye, 
   Reply, 
   MousePointerClick,
+  LucideIcon,
+  LucideProps
 } from 'lucide-react';
-import type { LucideProps } from 'lucide-react';
 import { FC, useState } from 'react';
 import { TypewriterEffect } from '@/components/TypewriterEffect';
 
-interface IconWrapperProps extends LucideProps {
-  icon: FC<LucideProps>;
+interface IconWrapperProps extends Omit<LucideProps, 'ref'> {
+  icon: LucideIcon;
 }
 
 const IconWrapper: FC<IconWrapperProps> = ({ icon: Icon, ...props }) => {
