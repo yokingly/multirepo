@@ -1,7 +1,6 @@
 'use client';
 
 import Link from 'next/link';
-import { Navigation } from '@/components/Navigation/index';
 import { 
   Mail, 
   Shield, 
@@ -15,16 +14,16 @@ import {
   Eye, 
   Reply, 
   MousePointerClick,
-  PauseCircle
 } from 'lucide-react';
 import type { LucideProps } from 'lucide-react';
 import { FC, useState } from 'react';
 import { TypewriterEffect } from '@/components/TypewriterEffect';
 
-// TODO: Fix type definitions for Lucide icons
-// @ts-ignore
-const IconWrapper: FC<LucideProps & { icon: any }> = ({ icon: Icon, ...props }) => {
-  // @ts-ignore
+interface IconWrapperProps extends LucideProps {
+  icon: FC<LucideProps>;
+}
+
+const IconWrapper: FC<IconWrapperProps> = ({ icon: Icon, ...props }) => {
   return <Icon {...props} />;
 };
 
@@ -356,8 +355,6 @@ const HowItWorksChart = () => {
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen bg-background">
-      <Navigation />
-      
       {/* Hero Section */}
       <section className="relative py-20 md:py-32 overflow-hidden">
         {/* Mesh Gradient Background */}
