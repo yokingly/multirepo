@@ -31,18 +31,24 @@ const IconWrapper: FC<LucideProps & { icon: any }> = ({ icon: Icon, ...props }) 
 const WaitlistForm = ({ className = '' }: { className?: string }) => {
   const [email, setEmail] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsLoading(true);
     try {
       // Simulate API call
       await new Promise(resolve => setTimeout(resolve, 1000));
       setIsSubmitted(true);
       setEmail('');
       // Reset submission state after 3 seconds
-      setTimeout(() => setIsSubmitted(false), 3000);
+      setTimeout(() => {
+        setIsSubmitted(false);
+        setIsLoading(false);
+      }, 3000);
     } catch (error) {
       console.error('Error joining waitlist:', error);
+      setIsLoading(false);
     }
   };
 
@@ -55,14 +61,22 @@ const WaitlistForm = ({ className = '' }: { className?: string }) => {
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         required
-        disabled={isSubmitted}
+        disabled={isSubmitted || isLoading}
       />
       <button 
         type="submit" 
-        className={`button-primary ${isSubmitted ? 'bg-green-600' : 'bg-blue-600 hover:bg-blue-700'} flex items-center`}
-        disabled={isSubmitted}
+        className={`button-primary ${isSubmitted ? 'bg-green-600' : 'bg-blue-600 hover:bg-blue-700'} flex items-center min-w-[160px] justify-center h-10 px-4 rounded-md text-white font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed`}
+        disabled={isSubmitted || isLoading}
       >
-        {isSubmitted ? (
+        {isLoading ? (
+          <>
+            Joining...
+            <svg className="animate-spin ml-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+              <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+            </svg>
+          </>
+        ) : isSubmitted ? (
           <>
             Added to Waitlist
             <IconWrapper icon={CheckCircle2} className="ml-2 h-4 w-4" />
@@ -277,6 +291,9 @@ const HowItWorksChart = () => {
                     <span className="px-2 py-0.5 bg-green-100 text-green-700 rounded-full text-xs font-medium">
                       {env.location}
                     </span>
+                    <span className="px-2 py-0.5 bg-purple-100 text-purple-700 rounded-full text-xs font-medium">
+                      {env.ip}
+                    </span>
                   </div>
                 </div>
 
@@ -374,7 +391,7 @@ export default function Home() {
             <div className="flex flex-wrap justify-center gap-4 text-sm text-muted-foreground">
               <div className="flex items-center">
                 <IconWrapper icon={CheckCircle2} className="mr-2 h-4 w-4 text-blue-600" />
-                <span>Land in primary inbox</span>
+                <span>Land in the primary</span>
               </div>
               <div className="flex items-center">
                 <IconWrapper icon={CheckCircle2} className="mr-2 h-4 w-4 text-blue-600" />

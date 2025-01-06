@@ -11,24 +11,13 @@ export function Navigation() {
           <Link href="/" className="flex items-center space-x-2">
             <span className="text-xl font-bold">Sendhuman</span>
           </Link>
-          <nav className="hidden md:flex gap-6">
-            <Link href="/features" className="nav-link">
-              Features
-            </Link>
-            <Link href="/pricing" className="nav-link">
-              Pricing
-            </Link>
-            <Link href="/enterprise" className="nav-link">
-              Enterprise
-            </Link>
-          </nav>
         </div>
         <div className="flex items-center gap-4">
           <Link href="/login" className="nav-link">
             Sign in
           </Link>
           <Link href="/signup" className="button-primary">
-            Get Started
+            Join Waitlist
           </Link>
         </div>
       </div>
